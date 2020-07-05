@@ -17,10 +17,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Empty FlashCards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="294">
               <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -58,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JC.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -129,9 +129,9 @@
       <find>questionTitle</find>
       <find>questionNumber</find>
       <find>Any</find>
+      <find>&quot;</find>
       <find>Aimbot</find>
       <find>Aim_Bot</find>
-      <find>&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>print</replace>
@@ -465,6 +465,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Card Data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QAC 2.0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Empty FlashCards.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#39#47#0" expanded="true" />
+            <element signature="e#1171#1214#0" expanded="true" />
+            <element signature="e#1983#2039#0" expanded="true" />
+            <element signature="e#2476#2515#0" expanded="true" />
+            <element signature="e#2812#2874#0" expanded="true" />
+            <element signature="e#3412#3472#0" expanded="true" />
+            <element signature="e#3376#3416#0" expanded="true" />
+            <element signature="e#3493#3534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Question Array Creator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -481,20 +513,6 @@
             <element signature="e#3859#3952#0" expanded="true" />
             <element signature="e#4095#4133#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Card Data">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QAC 2.0.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -521,24 +539,6 @@
             <element signature="e#3879#4123#0" expanded="true" />
             <element signature="e#4176#4296#0" expanded="true" />
             <element signature="e#4233#4296#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Empty FlashCards.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#39#47#0" expanded="true" />
-            <element signature="e#1171#1214#0" expanded="true" />
-            <element signature="e#1983#2039#0" expanded="true" />
-            <element signature="e#2476#2515#0" expanded="true" />
-            <element signature="e#2812#2874#0" expanded="true" />
-            <element signature="e#3412#3472#0" expanded="true" />
-            <element signature="e#3376#3416#0" expanded="true" />
-            <element signature="e#3493#3534#0" expanded="true" />
           </folding>
         </state>
       </provider>
