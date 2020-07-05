@@ -1,6 +1,8 @@
-from JC import A_User, Any
-from random import randint
 import JC
+from random import randint
+
+
+# BRIEF:
 
 # The Program iterates through the
 # 'AllQuestions' Array and tests you.
@@ -11,34 +13,121 @@ import JC
 # It runs until you got full marks, so
 # when the 'AllQuestions' Array is empty.
 
-# Variables and stuff
 
+# Variables and stuff
 RandomTopics = True
 StillAnswering = True
+FetchingDataFile = True
 
 theQuestion = -1
 itsName = 0
+questionIndex = -1
+endOfQuestionOne = 0
 
-# tbf this beginning thing is me
+# This beginning thing is me
 # being awkward and 'lazy'
 beginning = "Your Question: '"
 
+# Directory/name of data
+dataFile = "Card Data"
+
+# Bullet layout for the dataFile
+questionBullet = '>' + ' '
+answerBullet = '-' + ' '
+
 YourCorrectOnes = []
+AllQuestions = [[]]
+NewQuestion = []
 UserInputs = []
 TheAnswers = []
 
-# AllQuestions[which question][which answer to the question]
-AllQuestions = [
-              # Add your topics here like the below examples
-              # (delete them when you understand)...
-            
-                ["2 + 2",
-                 "4"],
-            
-                ["Say yes and no",
-                 "yes", "no"],
-            ]
+def ItsA(what, phrase):
+    global AllQuestions
+    global questionBullet
+    global answerBullet
+    
+    if what == "Question":
+        return phrase[:len(questionBullet)] == questionBullet
+    else:
+        return phrase[:len(answerBullet)] == answerBullet
 
+def NextItem(Array, currentItem):
+    try:
+        return Array[Array.index(currentItem) + 1]
+    except IndexError:
+        return ''
+    
+# The AllQuestions Array is laid out as...
+# AllQuestions[which question][which answer to the question]
+
+# Hard Coded copy of 'AllQuestions' data:
+if not FetchingDataFile:
+    
+    AllQuestions = [
+                  # Add your topics here like the below examples
+                  # (delete them when you understand)...
+                
+                    ["2 + 2",
+                     "4"],
+                
+                    ["Say yes and no",
+                     "yes", "no"],
+                ]
+
+# The 'Fetch File Data' Algorithm:
+else:
+    
+    # Splits the 'dataFile' into a single,  one dimensional
+    # array, where each item is a line of data from it.
+    
+    # It's one massive array at first, as a single item. Hence 'AllQuestions[0]'
+    AllQuestions[0] = open(dataFile, 'r').read().split('\n')
+    
+    # Remove blank lines/items, ''
+    while '' in AllQuestions[0]:
+        AllQuestions[0].remove('')
+
+    for item in AllQuestions[0]:
+        if ItsA("Question", item):
+            questionIndex += 1
+            
+            # Start splitting the array, so making
+            # new questions from the 2nd question onwards.
+            if questionIndex >= 1:
+                questionTitle = item
+                
+                if questionIndex == 1:
+                    endOfQuestionOne = AllQuestions[0].index(questionTitle)
+                
+                # 'NewQuestion' is an array/dimension, which will be added to
+                # the 2D 'AllQuestions' Array later
+                NewQuestion.append(questionTitle)
+                
+                # Add Answers to 'NewQuestion' Array
+                while ItsA("Answer", NextItem(AllQuestions[0], item)):
+                    NewQuestion.append(NextItem(AllQuestions[0], item))
+                    item = NextItem(AllQuestions[0], item)
+                
+                # Add the 'NewQuestion'
+                AllQuestions.insert(questionIndex, NewQuestion)
+                NewQuestion = []
+    
+    # The First giant array item is now split up, so now reduce
+    # it to include just the first question and its answers.
+    del AllQuestions[0][endOfQuestionOne:]
+    del NewQuestion
+
+    # Remove all the bullets, by slicing the items up.
+    for question in AllQuestions:
+        for item in question:
+            if ItsA("Question", item):
+                question[question.index(item)] = item[len(questionBullet):]
+            else:
+                question[question.index(item)] = item[len(answerBullet):]
+        
+    # End of algorithm!
+    
+    
 # Lowercase the answers so it's easier to check them
 for question in AllQuestions:
     answerIndex = 1
@@ -93,7 +182,7 @@ while 1:
     while StillAnswering:
         
         # Show what's already been inputted. 
-        if Any(UserInputs):
+        if JC.Any(UserInputs):
             JC.TitledList("Answers Submitted", UserInputs, False)
             JC.Pause(0)
         else:
@@ -101,8 +190,8 @@ while 1:
             
         # Then input more Answers.
         JC.Pause(2)
-        if A_User:
-            if not Any(UserInputs):
+        if JC.A_User:
+            if not JC.Any(UserInputs):
                 response = input("Your answer" + JC.cursor)
             else:
                 response = input("Your next answer" + JC.cursor)
@@ -127,10 +216,10 @@ while 1:
             YourCorrectOnes.append(yourAnswer)    
         
     # Show Marks
-    if not Any(UserInputs):
+    if not JC.Any(UserInputs):
         JC.Pace("I can't mark that mate!")
     else:
-        if Any(YourCorrectOnes):
+        if JC.Any(YourCorrectOnes):
             JC.SmartPace("(I think) you got " + str(len(YourCorrectOnes)) +
                          "/" + str(len(TheAnswers)) + " correct!")
         else:
@@ -149,21 +238,19 @@ while 1:
             else:
                 JC.SmartPace("\t- " + yourAnswer)
 
-    iSaidCorrect = JC.OkayWithMessage("\nDo you think you got the question "
-                                      "correct?")
+    iSaidCorrect = JC.OkayWith("\nDo you think you got the question correct?")
 
     JC.SmartPace("\nOkay then.")
-    if Any(YourCorrectOnes) or iSaidCorrect:
+    if JC.Any(YourCorrectOnes) or iSaidCorrect:
         if YourCorrectOnes == TheAnswers or iSaidCorrect:
             AllQuestions.remove(thisQuestion)
             amountAfterMarking = len(AllQuestions)
     
         percentage = str(round(100 - (100 * (amountAfterMarking /
                                              Total_Questions)), 2))
-        JC.Inform("\nSo far you have completed " + percentage + "% of the "
-                                                                "program\n")
+        JC.Inform("So far you have completed " + percentage + "% of the program")
 
-    if Any(AllQuestions):
+    if JC.Any(AllQuestions):
         # Update...
         JC.CatchUp()
         beginning = "Your New Question: '"
