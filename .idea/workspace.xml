@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84ac51f1-9111-47e1-9ca9-2219e41d7488" name="Default Changelist" comment="Card Data:&#10;- Added Card Data File:&#10;  A File where data can be typed in and run by the 'Empty Flashcards'&#10;  program. &#10;  &#10;  Uses bullets as labels for the given data. &#10;  &#10;  The bullets help the 'Flashcards' Program differentiate questions from&#10;  answers whilst recreating the 'AllQuestions' Array. So be consistent!&#10;  &#10;  Set the 'questionBullet' and 'answerBullet', and then write out your #&#10;  data, as demonstrated by the example data already in the 'Card Data' file.&#10;  &#10; - Added 'FetchingDataFile' Algorithm:&#10;   Choose for the Program to run using the data hard-coded in by setting &#10;   the 'FetchingDataFile' boolean mod to False, or set it to True to read&#10;   the card data from the directory given in 'dataFile' string variable.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Empty FlashCards.py" beforeDir="false" afterPath="$PROJECT_DIR$/Empty FlashCards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JC.py" beforeDir="false" afterPath="$PROJECT_DIR$/JC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="26">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#468#507#0" expanded="true" />
                 <element signature="e#1204#1491#0" expanded="true" />
@@ -157,10 +156,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/QAC 2.0.py" />
-        <option value="$PROJECT_DIR$/JC.py" />
         <option value="$PROJECT_DIR$/Question Array Creator.py" />
         <option value="$PROJECT_DIR$/Card Data" />
         <option value="$PROJECT_DIR$/Empty FlashCards.py" />
+        <option value="$PROJECT_DIR$/JC.py" />
       </list>
     </option>
   </component>
@@ -173,7 +172,20 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Empty_FlashCards" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Empty_FlashCards" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -302,7 +314,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24981412" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24924472" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24981412" />
       <window_info id="Favorites" order="2" show_stripe_button="false" side_tool="true" weight="0.32936803" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -518,8 +530,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="26">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#468#507#0" expanded="true" />
             <element signature="e#1204#1491#0" expanded="true" />
