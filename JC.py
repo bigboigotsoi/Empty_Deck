@@ -17,14 +17,14 @@ Aim_Bot = False
 A_User = not Aim_Bot
 Aim_Bot_Can_Dip = False
 Humanoid = False
-Impatient = True
+Impatient = False
 WelcomingUser = True
 
 # Leave the rest below alone...
 if Humanoid or not Aim_Bot:
     howSpedUp = 1
 else:
-    howSpedUp = 20
+    howSpedUp = 10
 
 # Give the largest pause time, then the
 # smaller ones will be auto-generated.
