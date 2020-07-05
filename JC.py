@@ -3,36 +3,27 @@ from time import sleep
 Yesses = ['y', "ye", "yeh", "yes", "yea", "yeah", "ok", "okay", '1', '']
 Delays = []
 
-# You can customize these variables
-titleStart = " -- "
-titleEnd = " -- "
-
+titleStart = titleEnd = " -- "
 listStart = "~ "
 listEnd = " ~"
-
 bullet = '- '
 cursor = ":- "
 
-Aim_Bot = True
+Aim_Bot = False
 A_User = not Aim_Bot
 Aim_Bot_Can_Dip = False
 Humanoid = False
-Impatient = True
 WelcomingUser = True
 
-# Leave the rest below alone...
 if Humanoid or not Aim_Bot:
     howSpedUp = 1
 else:
-    howSpedUp = 20
+    howSpedUp = 10
 
 # Give the largest pause time, then the
 # smaller ones will be auto-generated.
 # Set it to 0 to have no pauses.
-if not Impatient:
-    longPauseSize = 1.5
-else:
-    longPauseSize = 0
+longPauseSize = 1.5
 
 longPause = longPauseSize / howSpedUp
 
@@ -45,15 +36,15 @@ for count in range(4):
 
 averagePaceTime = Delays[1] / howSpedUp
 
-# Helpful Lambdas
-Any = lambda thing: thing or type(thing) == list and not len(thing) == 0
+Any = lambda thing: not len(thing) == 0
 Validate = lambda data, match: data == match
 Validate = lambda data, criteriaList: data in criteriaList
 Capitalize = lambda word: word[0].upper() + word[1: ]
 
+
 def AssertDominance():
     if Aim_Bot:
-        print("\t> AIM BOT ON <")
+        print("\n\t> AIM BOT ON <")
         sleep(1)
         print()
         if Humanoid:
@@ -62,7 +53,7 @@ def AssertDominance():
             print()
     else:
         if WelcomingUser:
-            print("\tHello User...")
+            print("\n\tHello User...")
             sleep(1)
             print()
     
@@ -94,36 +85,32 @@ def Pause(howLong):
     except IndexError:
         FoundError("An invalid pause duration was given")
         
-def EndCheck(message, Buffered):
-    bufferSize = 0
-    if Buffered:
-        bufferSize = 3
-        
-    if message[len(message) - (9 + bufferSize) :
-    len(message) - bufferSize] == " end = ''":
-        
-        print(message[:len(message) - (9 + bufferSize)]
-              + message[len(message) - bufferSize:], end = '')
+def Pace(message):
+    if message[len(message) - 5:len(message)] == ", end = ''":
+        print(message, end = '')
     else:
         print(message)
-
-def Pace(message):
-    EndCheck(message, Buffered = False)
+        
     Pause(2)
 
 def Stop():
     if not Aim_Bot:
         input(cursor)
     else:
-        Pace(cursor + "* AIM BOT says: 'Yeah yeah...' *")
+        Pace(cursor + "* AIM BOT says: '' *")
 
 def SmartPace(message):
-    EndCheck(message, Buffered = False)
+    if message[len(message)-5:len(message)] == ", end = ''":
+        print(message, end = '')
+    else:
+        print(message)
+        
     patienceFactor = 1 + float(round(len(message) / 75, 1))
     sleep(averagePaceTime * patienceFactor)
 
 def Inform(message):
-    EndCheck("\n* " + message + " * ", Buffered = True)
+    
+    Pace("\n* " + message + " * ")
     
 def IsBusy(theThing):
     Pace("\n..." + str(theThing) + "...")
@@ -167,7 +154,7 @@ def CountDown(totalTime, dotsToPrint):
     Pause(2)
     for doneDots in range(dotsToPrint):
         print('.')
-        sleep(totalTime / (howSpedUp * dotsToPrint))
+        sleep(totalTime / howSpedUp * dotsToPrint)
         
 def GoAwayIn(seconds, dotsToPrint):
     Stop()
