@@ -10,7 +10,7 @@ listEnd = " ~"
 bullet = '- '
 cursor = ":- "
 
-Aim_Bot = True
+Aim_Bot = False
 A_User = not Aim_Bot
 Humanoid = True
 Impatient = False
