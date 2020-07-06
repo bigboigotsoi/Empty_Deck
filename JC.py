@@ -1,9 +1,6 @@
 from time import sleep
 
-Yesses = ['y', "ye", "yeh", "yes", "yea", "yeah", "ok", "okay", '1', '']
-Delays = []
-
-# You can customize these variables
+# Customize these variables
 titleStart = " -- "
 titleEnd = " -- "
 
@@ -13,103 +10,117 @@ listEnd = " ~"
 bullet = '- '
 cursor = ":- "
 
-Aim_Bot = False
+Aim_Bot = True
 A_User = not Aim_Bot
-Aim_Bot_Can_Dip = False
-Humanoid = False
+Humanoid = True
 Impatient = False
-WelcomingUser = True
+FreshPages = False
+Aim_Bot_Can_Dip = False
 
-# Leave the rest below alone...
+# Sorting out the JC Timings
 if Humanoid or not Aim_Bot:
     howSpedUp = 1
 else:
     howSpedUp = 10
 
-# Give the largest pause time, then the
+# Define the largest pause time, then the
 # smaller ones will be auto-generated.
-# Set it to 0 to have no pauses.
 if not Impatient:
-    longPauseSize = 1.5
+    # Change this from 1.5 if you want 
+    longPause = 1.5
 else:
-    longPauseSize = 0
-
-longPause = longPauseSize / howSpedUp
-
+    longPause = 0
+    
+currentItem = -1
+Delays = []
 for count in range(4):
-    if longPauseSize == 0:
-        Delays = [0, 0, 0, 0]
-    else:
+    if longPause:
         # They decrease in size exponentially
-        Delays.insert(0, round(longPause / 2 ** count, 2))
+        Delays.insert(0, round(longPause / (2 ** count * howSpedUp), 2))
+    else:
+        Delays = [0, 0, 0, 0]
 
-averagePaceTime = Delays[1] / howSpedUp
-
-# Helpful Lambdas
+# Small helpful/nice looking lambdas
 Any = lambda thing: thing or type(thing) == list and not len(thing) == 0
-Validate = lambda data, match: data == match
-Validate = lambda data, criteriaList: data in criteriaList
 Capitalize = lambda word: word[0].upper() + word[1: ]
 
-def AssertDominance():
-    if Aim_Bot:
-        print("\t> AIM BOT ON <")
-        sleep(1)
-        print()
-        if Humanoid:
-            IsBusy("I'm Hungry")
-            sleep(1)
-            print()
-    else:
-        if WelcomingUser:
-            print("\tHello User...")
-            sleep(1)
-            print()
+# JC FUNCTIONS: In Categories of...
+
+# 1 - Presentation
+# 2 - Messaging
+# 3 - Pacing
+# 4 - Listing
+# 5 - AimBot
+# 6 - Errors
+
+
+# 1 - PRESENTATION:
+
+def FreshPage():
+    if FreshPages:
+        print('\n' * 38)
+        
+def Inform(message):
+    EndCheck("\n* " + message + " * ", Buffered = True)
+
+def IsBusy(theThing):
+    print()
+    DramaticElipses(1)
+    print(str(theThing), end = '')
+    DramaticElipses(1)
+    Pause(1)
+    print()
+    print()
+
+def DramaType(message, speed):
+    # Uses a constant time frame, so long
+    # messages are forced to be more rapid.
+    for character in message:
+        print(character, end = '')
+        sleep(Delays[1] * speed/len(message))
+        
+DramaticElipses = lambda speed: Spam('.', 3, 0.25 * speed/howSpedUp, False)
+
+
+# 2 - MESSAGING:
+
+def EndCheck(message, Buffered):
+    bufferSize = 0
+    endingIt = True
+    if Buffered:
+        bufferSize = 3
     
-def OkayWith(message):
-    if not Aim_Bot:
-        return Validate(input(message + cursor).lower(),Yesses)
+    for endPart in ["end", "="]:
+        if (endPart and ("''" or '""')) not in message[len(message) -
+                                                       (9 + bufferSize):len(
+                message) - bufferSize].lower():
+            endingIt = False
+    
+    if endingIt:
+        print(message[:len(message) - (9 + bufferSize)]
+              + message[len(message) - bufferSize:], end = '')
     else:
-        Pace(message + cursor + "* AIM BOT says: 'yes' *")
-        return True
+        print(message)
+        
+def Spam(theSpam, spamCount, spamPeriod, Down):
+    Pause(1)
+    for spamDone in range(spamCount):
+        if not Down:
+            print(theSpam, end = '')
+        else:
+            print(theSpam)
+        sleep(spamPeriod / (howSpedUp * spamCount))
 
-def CatchUp():
-    if not Aim_Bot:
-        input("Type to Continue" + cursor)
-    else:
-        Pace("Type to Continue" + cursor + "* AIM BOT says: 'yes' *")
-
-def SayStuffUntil(firstMessage, secondMessage, botAnswer):
+def SayThingsUntil(firstMessage, secondMessage, botAnswer):
     _okayInput = GetInput(firstMessage, botAnswer)
     while A_User and not OkayWith("Is this Okay? "):
         _okayInput = GetInput(secondMessage, botAnswer)
     return _okayInput
 
-SayUntil = lambda message, botAnswer: SayStuffUntil(message, message, botAnswer)
+SayUntil = lambda message, botAnswer: SayThingsUntil(message, message, botAnswer)
 
-def Pause(howLong):
-    try:
-        # So Pause(0) is the quickest pause, Pause(3) longest
-        sleep(Delays[howLong])
-    except IndexError:
-        FoundError("An invalid pause duration was given")
-        
-def EndCheck(message, Buffered):
-    bufferSize = 0
-    if Buffered:
-        bufferSize = 3
-        
-    if message[len(message) - (9 + bufferSize) :
-    len(message) - bufferSize] == " end = ''":
-        
-        print(message[:len(message) - (9 + bufferSize)]
-              + message[len(message) - bufferSize:], end = '')
-    else:
-        print(message)
 
-def Pace(message):
-    EndCheck(message, Buffered = False)
-    Pause(2)
+# 3 - PACING:
 
 def Stop():
     if not Aim_Bot:
@@ -117,17 +128,37 @@ def Stop():
     else:
         Pace(cursor + "* AIM BOT says: 'Yeah yeah...' *")
 
+def CatchUp():
+    if not Aim_Bot:
+        input("Type to Continue" + cursor)
+    else:
+        Pace("Type to Continue" + cursor + "* AIM BOT says: 'yes' *")
+        
+def Pace(message):
+    EndCheck(message, Buffered = False)
+    Pause(2)
+    
+def Pause(howLong):
+    try:
+        # So Pause(0) is the quickest pause, Pause(3) longest
+        sleep(Delays[howLong])
+    except IndexError:
+        FoundError("An invalid pause duration was given")
+        
+def OkayWith(message):
+    if not Aim_Bot:
+        return input(message + cursor).lower() in ['y', "ye", "yeh", "yes", "yea", "yeah", "ok", "okay", '1', '']
+    else:
+        Pace(message + cursor + "* AIM BOT says: 'yes' *")
+        return True
+    
 def SmartPace(message):
     EndCheck(message, Buffered = False)
     patienceFactor = 1 + float(round(len(message) / 75, 1))
-    sleep(averagePaceTime * patienceFactor)
+    sleep(Delays[1] * patienceFactor)
 
-def Inform(message):
-    EndCheck("\n* " + message + " * ", Buffered = True)
-    
-def IsBusy(theThing):
-    Pace("\n..." + str(theThing) + "...")
-    print()
+
+# 4 - LISTING:
 
 def Title(title):
     print("\n" + titleStart + str(title) + titleEnd)
@@ -140,10 +171,10 @@ def List(optionsList, numbered):
     for option in optionsList:
         if numbered:
             number += 1
-            print("\t" + str(number) + ' ' + bullet + "'" + option + "'")
+            DramaType("\t" + str(number) + ' ' + bullet + option + '\n', 1)
         else:
-            print("\t" + bullet + "'" + option + "'")
-        Pause(0)
+            DramaType("\t" + bullet + option + '\n', 1)
+        sleep(Delays[0]/2)
     Pause(0)
     print()
 
@@ -151,6 +182,34 @@ def TitledList(title, optionsList, numbered):
     Pause(1)
     print("\n\t" + listStart + title + ':' + listEnd)
     List(optionsList, numbered)
+
+ 
+# 5 - AIM_BOT:
+
+def AssertDominance():
+    if Aim_Bot:
+        DramaType("\t[ AIM BOT 'ON' ]", 1)
+        sleep(1)
+        if Humanoid:
+            print('\n\t', end = '')
+            DramaticElipses(1)
+            print("I'm Hungry", end = '')
+            DramaticElipses(1)
+            print()
+            sleep(1)
+    else:
+        print("\tHello User...")
+        sleep(1)
+    print()
+
+def BotSlowIterate(Array, whenDone):
+    global currentItem
+    currentItem += 1
+    if currentItem < len(Array):
+        return Array[currentItem]
+    else:
+        currentItem = -1
+        return whenDone
 
 def GetInput(fromMessage, botAnswer):
     if Aim_Bot:
@@ -162,29 +221,58 @@ def GetInput(fromMessage, botAnswer):
         _input = input(fromMessage + cursor)
         Pause(1)
         return _input
+    
+def VaryBotAnswers(condition, whileFalse, whenTrue):
+    if condition:
+        return whenTrue
+    else:
+        return whileFalse
+
+
+# 6 - ERRORS:
+
+def TryToRead(file):
+    content = 0
+    try:
+        content = open(file, 'r').read()
+    except:
+        try:
+            if file[len(file) - 4:] == ".txt":
+                content = open(file[:len(file) - 4], 'r').read()
+            else:
+                content = open(file + ".txt", 'r').read()
+        except:
+            FoundError("Couldn't find the File")
+    
+    if Any(content):
+        return content
+    else:
+        FoundError("The File is Empty")
         
-def CountDown(totalTime, dotsToPrint):
-    Pause(2)
-    for doneDots in range(dotsToPrint):
-        print('.')
-        sleep(totalTime / (howSpedUp * dotsToPrint))
-        
-def GoAwayIn(seconds, dotsToPrint):
+def FoundError(message):
+    Inform("Error: " + message + " end = ''")
+    GoAway()
+
+def GoAwayIn(seconds, Down):
     Stop()
     Pause(2)
-    print("\n...Closing in " + str(seconds) + " seconds...")
-    CountDown(seconds, dotsToPrint)
-    print('- ', end = '')
+    print()
+    DramaticElipses(1)
+    print("Closing in " + str(seconds) + " seconds ", end = '')
+    if not Down:
+        Pause(1)
+        Spam('. ', 2, seconds / howSpedUp, False)
+        print(' _ ', end = '')
+    else:
+        DramaticElipses(1)
+        Pause(1)
+        Spam('. ', 2, seconds / howSpedUp, True)
+        print('- ', end = '')
+    
     if not Aim_Bot or Aim_Bot and Aim_Bot_Can_Dip:
         exit()
     else:
         input("er, help...")
         exit()
         
-GoAway = lambda: GoAwayIn(2, 2)
-
-def FoundError(message):
-    Inform("Error: " + message)
-    GoAway()
-
-
+GoAway = lambda: GoAwayIn(2, True)

@@ -1,8 +1,7 @@
-import JC
+import JC, time
 from random import randint
 
-
-# BRIEF:
+# HOW IT WORKS:
 
 # The Program iterates through the
 # 'AllQuestions' Array and tests you.
@@ -15,32 +14,26 @@ from random import randint
 
 
 # Variables and stuff
+Intro = True
 RandomTopics = True
-StillAnswering = True
 FetchingDataFile = True
 
 theQuestion = -1
-itsName = 0
-questionIndex = -1
-endOfQuestionOne = 0
+current = -1
 
-# This beginning thing is me
-# being awkward and 'lazy'
-beginning = "Your Question: '"
+Commands = ["'Done': Finish answering.", "'Commands': See Commands List"]
 
-# Directory/name of data
+# Directory/name of data file
 dataFile = "Card Data"
 
-# Bullet layout for the dataFile
-questionBullet = '>' + ' '
-answerBullet = '-' + ' '
+# Specify the bullet layout for the dataFile
+# The two bullets can't be the same though.
+questionBullet = '> '
+answerBullet = '- '
 
-YourCorrectOnes = []
-AllQuestions = [[]]
-NewQuestion = []
-UserInputs = []
-TheAnswers = []
-
+if questionBullet == answerBullet:
+    JC.FoundError("questionBullet and answerBullet can't be the same.")
+    
 def ItsA(what, phrase):
     global AllQuestions
     global questionBullet
@@ -57,66 +50,65 @@ def NextItem(Array, currentItem):
     except IndexError:
         return ''
     
-# The AllQuestions Array is laid out as...
+# The AllQuestions Array is laid out as
 # AllQuestions[which question][which answer to the question]
+AllQuestions = [[]]
 
-# Hard Coded copy of 'AllQuestions' data:
+# You Hard Coded version of 'AllQuestions' data, here:
 if not FetchingDataFile:
     
     AllQuestions = [
-                  # Add your topics here like the below examples
-                  # (delete them when you understand)...
-                
+                    # Add your topics here like the below examples
                     ["2 + 2",
                      "4"],
                 
-                    ["Say yes and no",
-                     "yes", "no"],
-                ]
+                    ["Say 'yes' and 'no'",
+                     "yes", "no"]
+                    
+                    ]
 
-# The 'Fetch File Data' Algorithm:
+# 'FETCH FILE DATA' ALGORITHM:
 else:
+    # Splits the 'dataFile' into a single, one 
+    # dimensional array, where each item is a line of data from it. 
     
-    # Splits the 'dataFile' into a single,  one dimensional
-    # array, where each item is a line of data from it.
-    
-    # It's one massive array at first, as a single item. Hence 'AllQuestions[0]'
-    AllQuestions[0] = open(dataFile, 'r').read().split('\n')
+    # Then adds this array as a single item. Hence 'AllQuestions[0]'
+    AllQuestions[0] = JC.TryToRead(dataFile).split('\n')
     
     # Remove blank lines/items, ''
     while '' in AllQuestions[0]:
         AllQuestions[0].remove('')
-
+        
+    endOfQuestionOne = 0
     for item in AllQuestions[0]:
         if ItsA("Question", item):
-            questionIndex += 1
-            
+            NewQuestion = []
+            theQuestion += 1
+    
             # Start splitting the array, so making
             # new questions from the 2nd question onwards.
-            if questionIndex >= 1:
-                questionTitle = item
+            if theQuestion >= 1:
+                # If 2nd Question the 1st one would have just ended...
+                if theQuestion == 1:
+                    endOfQuestionOne = AllQuestions[0].index(item)
                 
-                if questionIndex == 1:
-                    endOfQuestionOne = AllQuestions[0].index(questionTitle)
-                
-                # 'NewQuestion' is an array/dimension, which will be added to
-                # the 2D 'AllQuestions' Array later
-                NewQuestion.append(questionTitle)
+                # 'NewQuestion' is an array/dimension, which will
+                # be added to the 2D 'AllQuestions' Array later.
+                NewQuestion.append(item)
                 
                 # Add Answers to 'NewQuestion' Array
                 while ItsA("Answer", NextItem(AllQuestions[0], item)):
                     NewQuestion.append(NextItem(AllQuestions[0], item))
                     item = NextItem(AllQuestions[0], item)
                 
-                # Add the 'NewQuestion'
-                AllQuestions.insert(questionIndex, NewQuestion)
-                NewQuestion = []
-    
+                # Add the finished 'NewQuestion' to 'AllQuestions'
+                AllQuestions.insert(theQuestion, NewQuestion)
+                del NewQuestion
+                
     # The First giant array item is now split up, so now reduce
     # it to include just the first question and its answers.
     del AllQuestions[0][endOfQuestionOne:]
-    del NewQuestion
-
+    
     # Remove all the bullets, by slicing the items up.
     for question in AllQuestions:
         for item in question:
@@ -125,136 +117,139 @@ else:
             else:
                 question[question.index(item)] = item[len(answerBullet):]
         
-    # End of algorithm!
-    
-    
-# Lowercase the answers so it's easier to check them
-for question in AllQuestions:
-    answerIndex = 1
-    while not answerIndex == len(question):
-        question[answerIndex] = question[answerIndex].lower()
-        answerIndex += 1
+    # End of algorithm:
+
+# Lowercase the answers so marking is slightly more lenient.
+for question in range(len(AllQuestions)):
+    for answer in range(1, len(AllQuestions[question])):
+        AllQuestions[question][answer] = AllQuestions[question][answer].lower()
 
 # The amount of questions before running
 # the program, so before any deleting.
 Total_Questions = len(AllQuestions)
 
-# These two detect if a question has been
+# To detect if a question has been
 # completed and deleted from AllQuestions[][].
-amountBeforeMarking = len(AllQuestions)
 amountAfterMarking = len(AllQuestions)
 
-JC.Title("'Empty' FlashCards: (Read-Only Template)")
-
+# CONSOLE START:
+JC.Title("'Empty' FlashCards: (Demo-Only Template)")
 JC.AssertDominance()
+theQuestion = -1
 
+if Intro:
+    JC.Pace("Before we start:")
+    JC.TitledList("Commands List", Commands, False)
+    JC.CatchUp()
+    print()
+    JC.FreshPage()
+
+# ACTUAL PROGRAM LOOP:
 while 1:
-    amountBeforeMarking = len(AllQuestions)
+    
+    # SETTING UP:
+    iSaidCorrect = False
     
     YourCorrectOnes = []
     TheAnswers = []
     UserInputs = []
     
-    whichOne = 0
-    
-    # Pick Question
+    # Pick Question.
     if RandomTopics:
         theQuestion = randint(0, len(AllQuestions)-1)
     else:
-        theQuestion += 1
-
-    # The entire Question Item from AllQuestions[][].
-    # So includes the answers and the actual question 'name'
-    thisQuestion = AllQuestions[theQuestion]
-    
-    # Everything apart from 'name' (from
-    # thisQuestion[1] upwards) is answers.
-    TheAnswers += thisQuestion
-    TheAnswers.remove(thisQuestion[itsName])
-
-    # The 'name' of the question is always the first part
-    # of the question info in AllQuestions[theQuestion]
-    # thisQuestion[itsName] == thisQuestion[0].
-    JC.SmartPace(beginning + thisQuestion[itsName] + "'.\n(Type '0' to "
-                                                            "finish answering.)")
-    StillAnswering = True
-    
-    while StillAnswering:
+        theQuestion = 0
         
-        # Show what's already been inputted. 
-        if JC.Any(UserInputs):
+    NewQuestion = AllQuestions[theQuestion]
+    
+    # Everything apart from the question title
+    # (from NewQuestion[1] upwards) is answers.
+    TheAnswers += NewQuestion[1:]
+    
+    JC.Spam(">", 2, JC.Delays[0], False)
+    
+    # ASK QUESTION:
+    JC.Pace(' ' + NewQuestion[0])
+    print()
+    StillAnswering = True
+    whichOne = -1
+    
+    # GET ANSWERS:
+    while StillAnswering:
+        whichOne += 1
+        response = JC.GetInput("Your answer", JC.BotSlowIterate(TheAnswers, "Done"))
+        
+        # Detect Commands.
+        if response.lower() == 'remind':
             JC.TitledList("Answers Submitted", UserInputs, False)
             JC.Pause(0)
+        elif response.lower() == 'commands':
+            JC.TitledList("Commands List", Commands, False)
+            JC.Pause(0)
+        elif response.lower() == 'done':
+            StillAnswering = False
+        # Or accept answer.
         else:
-            print()
-            
-        # Then input more Answers.
-        JC.Pause(2)
-        if JC.A_User:
-            if not JC.Any(UserInputs):
-                response = input("Your answer" + JC.cursor)
-            else:
-                response = input("Your next answer" + JC.cursor)
-            if JC.Validate(response, '0'):
-                StillAnswering = False
-            else:
-                UserInputs.append(response)
-        else:
-            if len(UserInputs) == len(TheAnswers):
-                response = JC.GetInput("Your answer", '0')
-                StillAnswering = False
-            else:
-                response = JC.GetInput("Your answer", TheAnswers[whichOne])
-                UserInputs.append(response)
-                whichOne += 1
-
-    JC.Pause(1)
-    JC.IsBusy("Marking Answers")
+            UserInputs.append(response)
     
-    for yourAnswer in UserInputs:
-        if yourAnswer.lower() in TheAnswers and yourAnswer not in YourCorrectOnes:
-            YourCorrectOnes.append(yourAnswer)    
-        
-    # Show Marks
+    # MARKING:
+    JC.Pause(0)
     if not JC.Any(UserInputs):
         JC.Pace("I can't mark that mate!")
     else:
+        JC.FreshPage()
+        JC.IsBusy("Marking Answers")
+        for yourAnswer in UserInputs:
+            if yourAnswer.lower() in TheAnswers and yourAnswer not in YourCorrectOnes:
+                YourCorrectOnes.append(yourAnswer)
+                
         if JC.Any(YourCorrectOnes):
-            JC.SmartPace("(I think) you got " + str(len(YourCorrectOnes)) +
+            JC.Pace("(I think) you got " + str(len(YourCorrectOnes)) +
                          "/" + str(len(TheAnswers)) + " correct!")
         else:
             JC.Pace("I think you got them all wrong!?")
+        JC.Pause(0)
+        
+        # FEEDBACK:
+        JC.TitledList("The answers were", TheAnswers, False)
     
-        # Return some feedback
+        print("\t Your entries were: ")
         JC.Pause(1)
-        JC.TitledList("The Answers were", TheAnswers, False)
-    
-        JC.Pace("\t (Your Entries were:) ")
-        JC.Pause(2)
         
         for yourAnswer in UserInputs:
             if yourAnswer.lower() in TheAnswers:
-                JC.SmartPace("\t- " + yourAnswer + "\t<-\tCorrect!")
+                print("\t- " + yourAnswer + "\t<-\tCorrect!")
             else:
-                JC.SmartPace("\t- " + yourAnswer)
-
-    iSaidCorrect = JC.OkayWith("\nDo you think you got the question correct?")
-
-    JC.SmartPace("\nOkay then.")
-    if JC.Any(YourCorrectOnes) or iSaidCorrect:
-        if YourCorrectOnes == TheAnswers or iSaidCorrect:
-            AllQuestions.remove(thisQuestion)
-            amountAfterMarking = len(AllQuestions)
+                print("\t- " + yourAnswer)
+            time.sleep(JC.Delays[0]/2)
     
-        percentage = str(round(100 - (100 * (amountAfterMarking /
-                                             Total_Questions)), 2))
-        JC.Inform("So far you have completed " + percentage + "% of the program")
-
+        JC.Pause(1)
+        iSaidCorrect = JC.OkayWith("\nDid you actually get the question correct?")
+    
+        # If I messed up...
+        if iSaidCorrect and not len(YourCorrectOnes) == len(TheAnswers) :
+            print("oh, ", end = '')
+        
+    # PREPARING FOR NEXT QUESTION:
+    if JC.Any(YourCorrectOnes) or iSaidCorrect:
+        JC.SmartPace("Okay then.")
+        
+        # Delete complete/learnt question.
+        if YourCorrectOnes == TheAnswers or iSaidCorrect:
+            AllQuestions.remove(NewQuestion)
+            amountAfterMarking = len(AllQuestions)
+        
+    # NEXT OR FINISH:
     if JC.Any(AllQuestions):
         # Update...
+        JC.Inform("You have completed " + str(round(100 - (100 *
+                         (amountAfterMarking / Total_Questions)), 2)) + "% of the program")
         JC.CatchUp()
-        beginning = "Your New Question: '"
-        JC.IsBusy("Switching Question")
+        JC.IsBusy("Next Question")
+        JC.FreshPage()
     else:
-        JC.Pace("\nYou've revised everything: - Well Done! ")
-        JC.GoAwayIn(2, 4)
+        # Finish...
+        JC.FreshPage()
+        JC.Pause(1)
+        JC.Pace("\nCards Completed: Well Done! end = ''")
+        JC.GoAwayIn(2, False)
