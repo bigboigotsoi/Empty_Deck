@@ -27,4 +27,4 @@ A.2 Modify the directory/name stored in the
 
 A.3 Run the Flashcards program and it should load your data!
 
-JC.py is a module of handy functions I like to use, named after me :)
+JC.py is a module of handy functions I like to use, named after me :) 
