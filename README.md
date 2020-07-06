@@ -11,8 +11,8 @@ A.  Let the FlashCards program read it all from your 'Card Data'.
 B.  Hard Code in your FlashCard data into the 'AllQuestions' Array. 
     (and set 'FetchingDataFile' to False)
 
-How to do Option B. is explained in the FlashCards Program.
-
+    How to do Option B is demonstrated in the FlashCards Program.
+    
 To do Part A...
 
 A.1 Modify your copy of the 'Card Data' file to include your own data:
