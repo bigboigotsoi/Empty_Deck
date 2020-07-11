@@ -10,12 +10,16 @@ listEnd = " ~"
 bullet = '- '
 cursor = ":- "
 
-Aim_Bot = False
+dramatypeSpeed = 0.75
+
+Aim_Bot = True
+Humanoid = False
 A_User = not Aim_Bot
-Humanoid = True
+Aim_Bot_Can_Dip = False
+
 Impatient = False
 FreshPages = False
-Aim_Bot_Can_Dip = False
+DramaTyping = True
 
 # Sorting out the JC Timings
 if Humanoid or not Aim_Bot:
@@ -32,6 +36,7 @@ else:
     longPause = 0
     
 currentItem = -1
+
 Delays = []
 for count in range(4):
     if longPause:
@@ -41,18 +46,12 @@ for count in range(4):
         Delays = [0, 0, 0, 0]
 
 # Small helpful/nice looking lambdas
-Any = lambda thing: thing or type(thing) == list and not len(thing) == 0
+Any = lambda thing: thing or type(thing) in [list, str] and not len(thing) == 0
 Capitalize = lambda word: word[0].upper() + word[1: ]
+MaxIndex = lambda Array: len(Array) - 1
+Quote = lambda phrase: "'" + phrase + "'"
 
 # JC FUNCTIONS: In Categories of...
-
-# 1 - Presentation
-# 2 - Messaging
-# 3 - Pacing
-# 4 - Listing
-# 5 - AimBot
-# 6 - Errors
-
 
 # 1 - PRESENTATION:
 
@@ -75,9 +74,12 @@ def IsBusy(theThing):
 def DramaType(message, speed):
     # Uses a constant time frame, so long
     # messages are forced to be more rapid.
-    for character in message:
-        print(character, end = '')
-        sleep(Delays[1] * speed/len(message))
+    if DramaTyping:
+        for character in message:
+            print(character, end = '')
+            sleep(Delays[1]/(len(message) * speed))
+    else:
+        print(message)
         
 DramaticElipses = lambda speed: Spam('.', 3, 0.25 * speed/howSpedUp, False)
 
@@ -109,7 +111,8 @@ def Spam(theSpam, spamCount, spamPeriod, Down):
             print(theSpam, end = '')
         else:
             print(theSpam)
-        sleep(spamPeriod / (howSpedUp * spamCount))
+        if not Impatient:
+            sleep(spamPeriod / (howSpedUp * spamCount))
 
 def SayThingsUntil(firstMessage, secondMessage, botAnswer):
     _okayInput = GetInput(firstMessage, botAnswer)
@@ -157,6 +160,31 @@ def SmartPace(message):
     patienceFactor = 1 + float(round(len(message) / 75, 1))
     sleep(Delays[1] * patienceFactor)
 
+def GoAwayIn(seconds, Down):
+    Stop()
+    Pause(2)
+    print()
+    DramaticElipses(1)
+    print("Closing in " + str(seconds) + " seconds ", end = '')
+    if not Down:
+        Pause(1)
+        Spam('. ', 2, seconds / howSpedUp, False)
+        print(' _ ', end = '')
+    else:
+        DramaticElipses(1)
+        Pause(1)
+        print()
+        Spam('. ', 2, seconds / howSpedUp, True)
+        print('- ', end = '')
+    
+    if not Aim_Bot or Aim_Bot and Aim_Bot_Can_Dip:
+        exit()
+    else:
+        input("er, help...")
+        exit()
+
+GoAway = lambda: GoAwayIn(2, True)
+
 
 # 4 - LISTING:
 
@@ -171,9 +199,9 @@ def List(optionsList, numbered):
     for option in optionsList:
         if numbered:
             number += 1
-            DramaType("\t" + str(number) + ' ' + bullet + option + '\n', 1)
+            DramaType("\t" + str(number) + ' ' + bullet + option + '\n', dramatypeSpeed)
         else:
-            DramaType("\t" + bullet + option + '\n', 1)
+            DramaType("\t" + bullet + option + '\n', dramatypeSpeed)
         sleep(Delays[0]/2)
     Pause(0)
     print()
@@ -188,10 +216,11 @@ def TitledList(title, optionsList, numbered):
 
 def AssertDominance():
     if Aim_Bot:
-        DramaType("\t[ AIM BOT 'ON' ]", 1)
+        DramaType("\t[ AIM BOT 'ON' ]", dramatypeSpeed)
         sleep(1)
+        print()
         if Humanoid:
-            print('\n\t', end = '')
+            print('\t', end = '')
             DramaticElipses(1)
             print("I'm Hungry", end = '')
             DramaticElipses(1)
@@ -229,7 +258,7 @@ def VaryBotAnswers(condition, whileFalse, whenTrue):
         return whileFalse
 
 
-# 6 - ERRORS:
+# 6 - UTILITIES:
 
 def TryToRead(file):
     content = 0
@@ -248,31 +277,47 @@ def TryToRead(file):
         return content
     else:
         FoundError("The File is Empty")
-        
+    
+def Yessify(boolean):
+    if boolean:
+        return "Yes"
+    return "No"
+
+def JC_Release_Ready():
+    Title("GitHub Release Check")
+    
+    print("\t ...RELEASE READY: " + Yessify(not (Aim_Bot or Impatient or
+                                                 FreshPages or Aim_Bot_Can_Dip)
+                                            and howSpedUp == 1).upper() + '...\n')
+    
+    List(["Aim Bot Off       : " + Yessify(not Aim_Bot),
+          "Humanoid Off      : " + Yessify(not Humanoid),
+          "Impatience Off    : " + Yessify(not Impatient),
+          "DramaTyping Off   : " + Yessify(not DramaTyping),
+          "Fresh Pages Off   : " + Yessify(not FreshPages),
+          "Bot Can Dip Off   : " + Yessify(not Aim_Bot_Can_Dip),
+          "Speed Factor == 1 : " + Yessify(howSpedUp == 1)], True)
+    
+    input("Type to Continue" + cursor)
+    
 def FoundError(message):
     Inform("Error: " + message + " end = ''")
     GoAway()
-
-def GoAwayIn(seconds, Down):
-    Stop()
-    Pause(2)
-    print()
-    DramaticElipses(1)
-    print("Closing in " + str(seconds) + " seconds ", end = '')
-    if not Down:
-        Pause(1)
-        Spam('. ', 2, seconds / howSpedUp, False)
-        print(' _ ', end = '')
-    else:
-        DramaticElipses(1)
-        Pause(1)
-        Spam('. ', 2, seconds / howSpedUp, True)
-        print('- ', end = '')
     
-    if not Aim_Bot or Aim_Bot and Aim_Bot_Can_Dip:
-        exit()
-    else:
-        input("er, help...")
-        exit()
-        
-GoAway = lambda: GoAwayIn(2, True)
+def NextItem(Array, currentItem):
+    try:
+        return Array[Array.index(currentItem) + 1]
+    except IndexError:
+        return ''
+    
+def PreviousItem(Array, currentItem):
+    try:
+        return Array[Array.index(currentItem) - 1]
+    except IndexError:
+        return ''
+    
+def AThingsArrayed(ArrayOfThings, Array):
+    for thing in ArrayOfThings:
+        if thing in Array:
+            return True
+    return False
