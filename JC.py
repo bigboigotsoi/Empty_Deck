@@ -12,7 +12,7 @@ cursor = ":- "
 
 dramatypeSpeed = 0.75
 
-Aim_Bot = True
+Aim_Bot = False
 Humanoid = False
 A_User = not Aim_Bot
 Aim_Bot_Can_Dip = False
