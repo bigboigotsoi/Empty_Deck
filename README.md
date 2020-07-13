@@ -22,16 +22,16 @@ First, you should provide the Card Data. You can either...
     
 To do Part A...
 
-A.1 Modify your copy of the 'Card Data' file to include your own data:
+    A.1 Modify your copy of the 'Card Data' file to include your own data:
 
-    Note...
-    A.1.1   You can modify 'questionBullet' and 'answerBullet' to your liking.
-    A.1.2   Use them appropiately as demonstrated with the Example Data
-            already in the Card Data file, in order for loading to work.
-    
-A.2 Modify the directory/name stored in the 
-    'cardFile' variable to locate your card data file.
+        Note...
+        A.1.1   You can modify 'questionBullet' and 'answerBullet' to your liking.
+        A.1.2   Use them appropiately as demonstrated with the Example Data
+                already in the Card Data file, in order for loading to work.
 
-A.3 Run the Flash-Carder and it should load your data!
+    A.2 Modify the directory/name stored in the 
+        'cardFile' variable to locate your card data file.
+
+    A.3 Run the Flash-Carder and it should load your data!
 
 Also, JC.py is just a module of handy functions I like to use, named after me. 
