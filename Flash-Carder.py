@@ -1,9 +1,9 @@
 from random import randint
-import JC
+import JC, os
 
 # HOW IT WORKS:
 
-# The Program iterates through the
+# The Carder iterates through the
 # 'AllCards' Array and tests you.
 
 # Correctly answered questions are removed
@@ -12,27 +12,70 @@ import JC
 # It runs until you got full marks, so
 # when the 'AllCards' Array is empty.
 
+# JC.Release_Ready()
 
 # Variables and stuff
-Intro = True
+Intro = False
 ShuffledCards = True
 FetchCardFile = True
 
 theCard = -1
 answerStart = ''
 
-Commands = ["'Done': Finish answering.", "'Commands': See Commands List"]
+Commands = ["'Enter': Finish answering.", "'Commands': See Commands List"]
 
-# Directory/name of data file
-cardFile = "Your Cards" + "\Card Data"
+# Directory/name of the DEFAULT data file.
+cardFolder = "Your Cards\\"
+cardFile = "Card Data"
 
-# Specify the bullet layout for the cardFile
-# The two bullets can't be the same though.
+# Bullet layout for the cardFile
+# The two can't be the same though.
 questionBullet = '> '
 answerBullet = '- '
 
 if questionBullet == answerBullet:
     JC.FoundError("questionBullet and answerBullet can't be the same.")
+
+# DEFAULT CARD FILE START:
+JC.Title(" Flash-Carder: ")
+
+JC.IsBusy("Loading default card file: " + JC.Quote(cardFile), False)
+
+# 'YOUR CARDS' FILE EXPLORER:
+if len(os.listdir(cardFolder)) > 1:
+    if JC.OkayWith("\nWould you like to choose a different file?"):
+        theCard += 1
+        AllCards = []
+        JC.Pace('\n' + JC.Quote(cardFolder) + " Card Folder:")
+        
+        # Build a kind of file tree thing...
+        for file in os.listdir(cardFolder):
+            # Draw...
+            print(' |')
+            theCard += 1
+            AllCards.append('(' + str(theCard) + ')--> ' + file)
+            
+            # Add file to the tree...
+            JC.DramaType(AllCards[JC.MaxIndex(AllCards)], 1)
+            print()
+        print()
+        
+        theCard = int(input("Which file number would you like to load?" + JC.cursor))
+        
+        JC.RangeCheck(1, theCard, len(AllCards))
+        
+        # Cut off the extra tree part to get the card file name...
+        cardFile = AllCards[int(theCard) - 1][JC.Digits(theCard) + 6:]
+        theCard = -1
+        print()
+        
+        JC.IsBusy("Loading new card file: " + JC.Quote(cardFile), False)
+    else:
+        JC.Pace("\nOkay then  end = ''")
+        JC.IsBusy("Resuming loading " + JC.Quote(cardFile), False)
+    
+cardFile = cardFolder + cardFile
+JC.FreshPage()
     
 def ItsA(what, phrase):
     global AllCards
@@ -80,7 +123,7 @@ else:
     # Detect Empty Bullet Error.
     if JC.AThingsArrayed([answerBullet, questionBullet], AllCards[0]):
         if answerBullet and questionBullet in AllCards[0]:
-            JC.FoundError("Empty question and answer bullets found.")
+            JC.FoundError("Empty question and/or answer bullets found.")
         elif questionBullet in AllCards[0]:
             JC.FoundError("Empty question bullet(s) found.")
         else:
@@ -135,19 +178,26 @@ for question in range(len(AllCards)):
 # The amount of questions before before any deleting.
 totalCards = len(AllCards)
 
-# CONSOLE START:
-JC.Title(JC.Quote(cardFile[11:]) + " Flash-Carder: (Demo-Only Template)")
+# CUSTOM CARD CHOICE START:
+JC.Title(JC.Quote(cardFile[cardFile.index('\ '[0]) + 1:]) + " Flash-Carder:")
+
 JC.AssertDominance()
+JC.Pace("(There are " + str(totalCards) + " questions)")
 theCard = -1
+print()
+
 
 if Intro:
-    JC.Pace("Before we start:")
+    JC.Pace("Firstly...")
     JC.TitledList("Commands List", Commands, False)
     JC.CatchUp()
     print()
     JC.FreshPage()
 
-# ACTUAL PROGRAM LOOP:
+JC.IsBusy("Starting", False)
+print()
+
+# CARD FLASHING LOOP:
 while 1:
     
     # SETTING UP:
@@ -169,18 +219,23 @@ while 1:
     # (from NewCard[1] upwards) is answers.
     TheAnswers += NewCard[1:]
     
+    if len(TheAnswers) > 1:
+        JC.Pace("* There are " + str(len(TheAnswers))
+                  + " answers/parts to this question. *\n")
+        
     JC.Spam(">", 2, JC.Delays[0], False)
-    
+
     # ASK QUESTION:
     JC.Pace(' ' + NewCard[0])
     print()
+    
     StillAnswering = True
     whichOne = -1
     
     # GET ANSWERS:
     while StillAnswering:
         whichOne += 1
-        response = JC.GetInput("Your answer", JC.BotSlowIterate(TheAnswers, "Done"))
+        response = JC.GetInput("Your answer", JC.BotSlowIterate(TheAnswers, ''))
         
         # Detect Commands.
         if response.lower() == 'remind':
@@ -189,56 +244,51 @@ while 1:
         elif response.lower() == 'commands':
             JC.TitledList("Commands List", Commands, False)
             JC.Pause(0)
-        elif response.lower() == 'done':
-            StillAnswering = False
+        elif response.lower() == '':
+            if JC.Any(UserInputs):
+                StillAnswering = False
+            else:
+                JC.Pace("Gotta give an answer first mate!")
+                print()
+                
         # Or accept and save answer.
         else:
             UserInputs.append(response)
     
     # MARKING:
     JC.Pause(0)
-    if not JC.Any(UserInputs):
-        JC.Pace("I can't mark that mate!")
-    else:
-        JC.FreshPage()
-        JC.IsBusy("Marking Answers")
-        
-        for yourAnswer in UserInputs:
-            if yourAnswer.lower() in TheAnswers and yourAnswer not in CorrectAnswers:
-                CorrectAnswers.append(yourAnswer)
-                
-        # OPINION:
-        if JC.Any(CorrectAnswers):
-            JC.Pace("(I think) you got " + str(len(CorrectAnswers)) +
-                         "/" + str(len(TheAnswers)) + " correct!")
+    JC.FreshPage()
+    JC.IsBusy("Marking Answers", True)
+    
+    for yourAnswer in UserInputs:
+        if yourAnswer.lower() in TheAnswers and yourAnswer not in CorrectAnswers:
+            CorrectAnswers.append(yourAnswer)
+    
+    # FEEDBACK:
+    print('\t' + JC.listStart + "The answers were:" + JC.listEnd)
+    JC.List(TheAnswers, False)
+    
+    print('\t' + JC.listStart + "Your entries were:" + JC.listEnd)
+    JC.Pause(1)
+    
+    for yourAnswer in UserInputs:
+        if yourAnswer.lower() in TheAnswers:
+            JC.DramaType("\t- " + yourAnswer + "\t<- Correct!", JC.dramatypeSpeed)
         else:
-            JC.Pace("I think you got them all wrong!?")
+            JC.DramaType("\t- " + yourAnswer, JC.dramatypeSpeed)
+        print()
         JC.Pause(0)
         
-        # FEEDBACK:
-        JC.TitledList("The answers were", TheAnswers, False)
-    
-        print("\t Your entries were: ")
-        JC.Pause(1)
-        
-        for yourAnswer in UserInputs:
-            if yourAnswer.lower() in TheAnswers:
-                JC.DramaType("\t- " + yourAnswer + "\t<-\tCorrect!", JC.dramatypeSpeed)
-            else:
-                JC.DramaType("\t- " + yourAnswer, JC.dramatypeSpeed)
-            print()
-            JC.Pause(0)
-            
-        # MARKING FAIL-SAFE:    
-        JC.Pause(1)
-        ISaidCorrect = JC.OkayWith("\nDid you actually get the question correct?")
-    
-        # Show remorse...
-        if ISaidCorrect: 
-            if not len(CorrectAnswers) == len(TheAnswers):
-                print("oh, ", end = '')
-            if JC.Any(CorrectAnswers):
-                JC.SmartPace("Okay then.")
+    # MARKING FAIL-SAFE:
+    JC.Pause(1)
+    ISaidCorrect = JC.OkayWith("\nDid you get the question correct?")
+
+    # Be suprised perhaps...
+    if ISaidCorrect:
+        if not len(CorrectAnswers) == len(TheAnswers):
+            print("oh...")
+        if JC.Any(CorrectAnswers):
+            JC.SmartPace("Okay then.")
                 
     # REMOVE LEARNT QUESTION:
     if ISaidCorrect or len(CorrectAnswers) == len(TheAnswers):
@@ -247,14 +297,15 @@ while 1:
         
         JC.Inform("You have completed " + str(round(100 - (100 * 
             (amountAfterMarking / totalCards)), 1)) + "% of the program")
-        JC.CatchUp()
+        
             
     # NEXT OR FINISH:
     if JC.Any(AllCards):
-        JC.IsBusy("Next Question")
+        JC.CatchUp()
+        JC.IsBusy("Next Question", True)
         JC.FreshPage()
     else:
         JC.FreshPage()
         JC.Pause(1)
-        JC.Pace("\nCards Completed: Well Done! end = ''")
+        JC.Pace("\nAll Cards Learnt: Well Done! end = ''")
         JC.GoAway()

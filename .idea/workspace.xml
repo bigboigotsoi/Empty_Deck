@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84ac51f1-9111-47e1-9ca9-2219e41d7488" name="Default Changelist" comment="Flash-Carder:&#10;- Moved Next and Previous Item to JC module.&#10;- Renamed 'AllQuestions' to 'AllCards' and more...&#10;&#10;Fetch Data File Algorithm (QAC 2.0)...&#10;- Heavy optimization.&#10;- Added Bulleting error check.&#10;&#10;JC:&#10;- Added 'Quote' and 'MaxIndex' lambda expressions.&#10;- Added 'dramatypeSpeed' to modify the overally speed.&#10;- Added 'DramaTyping' Bool mod, to toggle it on/off.&#10;&#10;Functions...&#10;- Added 'Yessify' function: &#10;Turns boolean values to yes/no outputs.&#10;&#10;- Added 'AThingsArrayed' function: &#10;Checks if at least one of a list of values/variables is in a given array.&#10;&#10;- Added 'JC_ReleaseReady' function: &#10;Checks if particular boolean mods have been reset.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="84ac51f1-9111-47e1-9ca9-2219e41d7488" name="Default Changelist" comment="Flash-Carder:&#10;- Switched the finish command from 'Done' to 'Enter'&#10;- Now mentions if 2 or more answers/parts to a question.&#10;- Removed super inaccurate marking opinions.&#10;&#10;New 'Card Data File Explorer':&#10;- Option to either...&#10;Load the 'default' (hard-coded in) card data file, or...&#10;Pick another from the 'Your Cards' folder. All within running the Carder program.&#10; &#10;- Pick your file using the appropriate file number from the file 'tree' display.&#10;- No need to hard-code every time now. Have one default, and pick others when necessary.&#10;&#10;JC:&#10;- Increased 'dramatypeSpeed' and general pacing speed.&#10;&#10;- Added 'Digits' lambda expression:&#10;Returns amount of digits of a number.&#10;&#10;- Added 'Gapped' arguement to 'IsBusy' function: &#10;Toggles newlines on/off.&#10;&#10;- Added 'RangeCheck' function:&#10;Verifies if a value is in range, and raises a 'FoundError' if not.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Card Data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Empty FlashCards.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flash-Carder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flash-Carder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JC.py" beforeDir="false" afterPath="$PROJECT_DIR$/JC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,37 +20,37 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="-1480">
+              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               <folding>
-                <element signature="e#1480#1739#0" expanded="true" />
-                <marker date="1594507538866" expanded="true" signature="52:311" ph="..." />
-                <marker date="1594507538866" expanded="true" signature="341:830" ph="..." />
-                <marker date="1594507538866" expanded="true" signature="869:1002" ph="..." />
-                <marker date="1594507538866" expanded="true" signature="869:1042" ph="..." />
-                <marker date="1594507538866" expanded="true" signature="869:1084" ph="..." />
+                <marker date="1595015822065" expanded="true" signature="52:309" ph="..." />
+                <marker date="1595015822065" expanded="true" signature="52:310" ph="..." />
+                <marker date="1595015822065" expanded="true" signature="341:831" ph="..." />
+                <marker date="1595015822065" expanded="false" signature="870:1126" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/Flash-Carder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            <state relative-caret-position="256">
+              <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#42#57#0" expanded="true" />
+                <element signature="e#2708#4968#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Flash-Carder.py">
+        <entry file="file://$PROJECT_DIR$/Your Cards/Another Card Data File.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2861">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -69,12 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;</find>
-      <find>Aimbot</find>
-      <find>Aim_Bot</find>
-      <find>dataFile</find>
-      <find>Validate</find>
-      <find>Ends</find>
       <find>itsName</find>
       <find>whichOne</find>
       <find>st</find>
@@ -99,6 +90,12 @@
       <find>* A</find>
       <find>sleep</find>
       <find>DramaType</find>
+      <find>totalCards</find>
+      <find>randint</find>
+      <find>int</find>
+      <find>IsB</find>
+      <find>Done</find>
+      <find>dramatypeSp</find>
     </findStrings>
     <replaceStrings>
       <replace>print</replace>
@@ -146,17 +143,18 @@
         <option value="$PROJECT_DIR$/Card Data.txt" />
         <option value="$PROJECT_DIR$/Colossians 3.txt" />
         <option value="$PROJECT_DIR$/Empty FlashCards.py" />
-        <option value="$PROJECT_DIR$/Flash-Carder.py" />
         <option value="$PROJECT_DIR$/h.py" />
         <option value="$PROJECT_DIR$/j" />
-        <option value="$PROJECT_DIR$/JC.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/JC.py" />
+        <option value="$PROJECT_DIR$/Flash-Carder.py" />
+        <option value="$PROJECT_DIR$/Your Cards/Another Card Data File.txt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="713" />
-    <option name="width" value="660" />
+    <option name="x" value="-7" />
+    <option name="width" value="697" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -165,7 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -173,17 +170,28 @@
               <item name="Flash-Carder" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
+            <path>
+              <item name="Flash-Carder" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Your Cards" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Flash-Carder.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Your Cards" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder\Your Cards" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -309,7 +317,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49679488" visible="true" weight="0.17145015" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49679488" visible="true" weight="0.08459215" />
       <window_info id="Structure" order="1" sideWeight="0.5032051" side_tool="true" weight="0.16087614" />
       <window_info id="Favorites" order="2" show_stripe_button="false" side_tool="true" weight="0.32936803" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -328,7 +336,7 @@
       <window_info anchor="right" x="1" y="31" width="681" height="706" id="Run" maximized="true" order="4" type="WINDOWED" weight="0.32852563" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49679488" weight="0.16282527" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49679488" weight="0.08459215" />
       <window_info id="Structure" order="1" sideWeight="0.5032051" side_tool="true" weight="0.16087614" />
       <window_info id="Favorites" order="2" show_stripe_button="false" side_tool="true" weight="0.32936803" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -354,13 +362,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/JC.py</url>
-          <line>79</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-defaults>
         <breakpoint type="python-line" />
       </breakpoints-defaults>
@@ -374,48 +375,52 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>JC.Any(NewQuestion)</expression-string>
+        <expression-string>cardFile[cardFile.index('\ '[0])+1:]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len('')</expression-string>
+        <expression-string>JC.MaxIndex(AllCards)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>question[itemIndex][0] or question[itemIndex][len(question[itemIndex]) - 1] in ['', ' ', ',', '.']</expression-string>
+        <expression-string>JC.MaxIndex(AllCards))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>question[itemIndex][0] or question[itemIndex][len(question[itemIndex]) - 1] \
-                    in ['', ' ', ',', '.']</expression-string>
+        <expression-string>AllCards[int(theCard) - 1][JC.Digits(theCard) + 6:]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>question[question.index(item)][0]</expression-string>
+        <expression-string>AllCards[int(theCard) - 1][len(treePart):]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>NewQuestion[1:]</expression-string>
+        <expression-string>AllCards[int(theCard) - 1][len('(' + str(theCard) + ')--&gt; '):]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Comma_After('') + Start_New_Level(' ') == ', \n\t\t\t\t\t '</expression-string>
+        <expression-string>AllCards[theCard - 1][len('(' + str(theCard) + ')--&gt; '):]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>item[len(answerBullet):]</expression-string>
+        <expression-string>Path(cardFolder)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>item[len(questionBullet):]</expression-string>
+        <expression-string>list(Path(cardFolder))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>list(Path(cardFolder).rglob())</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -449,6 +454,16 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
+        <expression-string>totalCards</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>TheAnswers</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>NextItem(AllQuestions[0], item)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -478,21 +493,6 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>AllQuestions[0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>NewQuestion</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>botMaxQuestions</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -505,21 +505,7 @@
     <entry file="file://$PROJECT_DIR$/Question Array Creator.py" />
     <entry file="file://$PROJECT_DIR$/ay" />
     <entry file="file://$PROJECT_DIR$/Obsolete/Question Array Creator.py" />
-    <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="311" selection-start-line="311" selection-end-line="311" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Colossians 3.txt" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Empty FlashCards.py" />
     <entry file="file://$PROJECT_DIR$/Card Data" />
     <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/Lib/tokenize.py">
@@ -529,63 +515,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/h.py">
+    <entry file="file://$PROJECT_DIR$/h.py" />
+    <entry file="file://$PROJECT_DIR$/j" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3774">
-          <caret line="266" column="29" selection-start-line="266" selection-start-column="29" selection-end-line="266" selection-end-column="29" />
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="311" selection-start-line="311" selection-end-line="311" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1480">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
           <folding>
-            <element signature="e#25#40#0" expanded="true" />
-            <element signature="e#70#85#0" expanded="true" />
-            <element signature="e#575#619#0" expanded="true" />
-            <element signature="e#844#1075#0" expanded="true" />
-            <element signature="e#1116#1212#0" expanded="true" />
-            <element signature="e#1215#1254#0" expanded="true" />
-            <element signature="e#1441#1627#0" expanded="true" />
-            <element signature="e#1514#1541#0" expanded="true" />
-            <element signature="e#1568#1616#0" expanded="true" />
-            <element signature="e#1670#1713#0" expanded="true" />
-            <element signature="e#2203#2241#0" expanded="true" />
-            <element signature="e#2542#2591#0" expanded="true" />
-            <element signature="e#3157#3216#0" expanded="true" />
-            <element signature="e#3923#3963#0" expanded="true" />
-            <element signature="e#4040#4074#0" expanded="true" />
-            <element signature="e#4759#4801#0" expanded="true" />
+            <marker date="1595015822065" expanded="true" signature="52:309" ph="..." />
+            <marker date="1595015822065" expanded="true" signature="52:310" ph="..." />
+            <marker date="1595015822065" expanded="true" signature="341:831" ph="..." />
+            <marker date="1595015822065" expanded="false" signature="870:1126" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Your Cards/Another Card Data File.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Flash-Carder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2861">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="256">
+          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#42#57#0" expanded="true" />
+            <element signature="e#2708#4968#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/j">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#1480#1739#0" expanded="true" />
-            <marker date="1594507538866" expanded="true" signature="52:311" ph="..." />
-            <marker date="1594507538866" expanded="true" signature="341:830" ph="..." />
-            <marker date="1594507538866" expanded="true" signature="869:1002" ph="..." />
-            <marker date="1594507538866" expanded="true" signature="869:1042" ph="..." />
-            <marker date="1594507538866" expanded="true" signature="869:1084" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
         </state>
       </provider>
     </entry>

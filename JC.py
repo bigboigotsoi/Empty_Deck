@@ -10,16 +10,18 @@ listEnd = " ~"
 bullet = '- '
 cursor = ":- "
 
-dramatypeSpeed = 0.75
+dramatypeSpeed = 1
 
-Aim_Bot = True
+Aim_Bot = False
 Humanoid = False
+
 A_User = not Aim_Bot
 Aim_Bot_Can_Dip = False
 
 Impatient = False
 FreshPages = False
 DramaTyping = True
+
 
 # Sorting out the JC Timings
 if Humanoid or not Aim_Bot:
@@ -31,7 +33,7 @@ else:
 # smaller ones will be auto-generated.
 if not Impatient:
     # Change this from 1.5 if you want 
-    longPause = 1.5
+    longPause = 1.25
 else:
     longPause = 0
     
@@ -50,6 +52,7 @@ Any = lambda thing: thing or type(thing) in [list, str] and not len(thing) == 0
 Capitalize = lambda word: word[0].upper() + word[1: ]
 MaxIndex = lambda Array: len(Array) - 1
 Quote = lambda phrase: "'" + phrase + "'"
+Digits = lambda number: len(str(number))
 
 # JC FUNCTIONS: In Categories of...
 
@@ -62,13 +65,15 @@ def FreshPage():
 def Inform(message):
     EndCheck("\n* " + message + " * ", Buffered = True)
 
-def IsBusy(theThing):
-    print()
+def IsBusy(theThing, Gapped):
+    if Gapped:
+        print()
     DramaticElipses(1)
     print(str(theThing), end = '')
     DramaticElipses(1)
     Pause(1)
-    print()
+    if Gapped:
+        print()
     print()
 
 def DramaType(message, speed):
@@ -152,7 +157,7 @@ def OkayWith(message):
     if not Aim_Bot:
         return input(message + cursor).lower() in ['y', "ye", "yeh", "yes", "yea", "yeah", "ok", "okay", '1', '']
     else:
-        Pace(message + cursor + "* AIM BOT says: 'yes' *")
+        Pace(message + cursor + "* AIM BOT says: 'Okay' *")
         return True
     
 def SmartPace(message):
@@ -260,6 +265,26 @@ def VaryBotAnswers(condition, whileFalse, whenTrue):
 
 # 6 - UTILITIES:
 
+def Release_Ready():
+    Title("JC.py GitHub Release Check")
+    
+    Ready = not (Aim_Bot or Impatient or FreshPages or Aim_Bot_Can_Dip)\
+            and howSpedUp == 1
+    
+    print("\t ...RELEASE READY: " + Yessify(Ready).upper() + '!..\n')
+    
+    if not Ready:
+        List(["Aim Bot Off       : " + Yessify(not Aim_Bot),
+          "Humanoid Off      : " + Yessify(not Humanoid),
+          "Impatience Off    : " + Yessify(not Impatient),
+          "DramaTyping On    : " + Yessify(DramaTyping),
+          "Fresh Pages Off   : " + Yessify(not FreshPages),
+          "Bot Can Dip Off   : " + Yessify(not Aim_Bot_Can_Dip),
+          "Speed Factor == 1 : " + Yessify(howSpedUp == 1)], True)
+    
+    input("Type to Continue" + cursor)
+    FreshPage()
+    
 def TryToRead(file):
     content = 0
     try:
@@ -283,23 +308,6 @@ def Yessify(boolean):
         return "Yes"
     return "No"
 
-def JC_Release_Ready():
-    Title("GitHub Release Check")
-    
-    print("\t ...RELEASE READY: " + Yessify(not (Aim_Bot or Impatient or
-                                                 FreshPages or Aim_Bot_Can_Dip)
-                                            and howSpedUp == 1).upper() + '...\n')
-    
-    List(["Aim Bot Off       : " + Yessify(not Aim_Bot),
-          "Humanoid Off      : " + Yessify(not Humanoid),
-          "Impatience Off    : " + Yessify(not Impatient),
-          "DramaTyping Off   : " + Yessify(not DramaTyping),
-          "Fresh Pages Off   : " + Yessify(not FreshPages),
-          "Bot Can Dip Off   : " + Yessify(not Aim_Bot_Can_Dip),
-          "Speed Factor == 1 : " + Yessify(howSpedUp == 1)], True)
-    
-    input("Type to Continue" + cursor)
-    
 def FoundError(message):
     Inform("Error: " + message + " end = ''")
     GoAway()
@@ -309,7 +317,13 @@ def NextItem(Array, currentItem):
         return Array[Array.index(currentItem) + 1]
     except IndexError:
         return ''
-    
+
+def RangeCheck(lower, value, upper):
+    if int(value) < lower:
+        FoundError("Value too small")
+    if int(value) > upper:
+        FoundError("Value too large")
+        
 def PreviousItem(Array, currentItem):
     try:
         return Array[Array.index(currentItem) - 1]
