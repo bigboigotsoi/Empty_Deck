@@ -15,12 +15,21 @@ import JC, os
 # JC.Release_Ready()
 
 # Variables and stuff
-Intro = False
+Intro = True
 ShuffledCards = True
-FetchCardFile = True
 
 theCard = -1
 answerStart = ''
+
+def ItsA(what, phrase):
+    global AllCards
+    global questionBullet
+    global answerBullet
+    
+    if what == "Question":
+        return phrase[:len(questionBullet)] == questionBullet
+    else:
+        return phrase[:len(answerBullet)] == answerBullet
 
 Commands = ["'Enter': Finish answering.", "'Commands': See Commands List"]
 
@@ -28,8 +37,8 @@ Commands = ["'Enter': Finish answering.", "'Commands': See Commands List"]
 cardFolder = "Your Cards\\"
 cardFile = "Card Data"
 
-# Bullet layout for the cardFile
-# The two can't be the same though.
+# Bullet layout for the cardFile,
+# but the two can't be the same though.
 questionBullet = '> '
 answerBullet = '- '
 
@@ -76,99 +85,74 @@ if len(os.listdir(cardFolder)) > 1:
     
 cardFile = cardFolder + cardFile
 JC.FreshPage()
-    
-def ItsA(what, phrase):
-    global AllCards
-    global questionBullet
-    global answerBullet
-    
-    if what == "Question":
-        return phrase[:len(questionBullet)] == questionBullet
-    else:
-        return phrase[:len(answerBullet)] == answerBullet
-    
+
 # The AllCards Array is laid out as
 # AllCards[which question][which answer to the question]
 AllCards = [[]]
 
 NewCard = []
 
-# You Hard Coded version of 'AllCards' data, here:
-if not FetchCardFile:
-    
-    AllCards = [
-                    # Add your topics here like the below examples
-                    ["2 + 2",
-                     "4"],
-                
-                    ["Say 'yes' and 'no'",
-                     "yes", "no"]
-                    
-                    ]
-
 # 'FETCH FILE DATA' ALGORITHM:
-else:
-    # READ DATA FILE:
-    
-    # An Array, where each item is a line of data,
-    # is added as a single item. Hence 'AllCards[0]'
-    AllCards[0] = JC.TryToRead(cardFile).split('\n')
-            
-    # CLEAN UP DATA LOOPS:
-    
-    # Remove blank lines/items, == ''
-    while '' in AllCards[0]:
-        AllCards[0].remove('')
 
-    # Detect Empty Bullet Error.
-    if JC.AThingsArrayed([answerBullet, questionBullet], AllCards[0]):
-        if answerBullet and questionBullet in AllCards[0]:
-            JC.FoundError("Empty question and/or answer bullets found.")
-        elif questionBullet in AllCards[0]:
-            JC.FoundError("Empty question bullet(s) found.")
-        else:
-            JC.FoundError("Empty answer bullet(s) found.")
+# An Array, where each item is a line of data,
+# is added as a single item. Hence 'AllCards[0]'
+AllCards[0] = JC.TryToRead(cardFile).split('\n')
+
+# CLEAN UP DATA LOOPS:
+
+# Remove blank lines/items, == ''
+while '' in AllCards[0]:
+    AllCards[0].remove('')
+
+# Detect Empty Bullet Error.
+if JC.AThingsArrayed([answerBullet, questionBullet], AllCards[0]):
+    if answerBullet and questionBullet in AllCards[0]:
+        JC.FoundError("Empty question and/or answer bullets found.")
+    elif questionBullet in AllCards[0]:
+        JC.FoundError("Empty question bullet(s) found.")
+    else:
+        JC.FoundError("Empty answer bullet(s) found.")
+    
+# DEBULLETING + REORGANISING 'ALLCARDS':
+for item in AllCards[0]:
+    if ItsA("Question", item):
+        # If a previous question just was now
+        # finished, add that previous one first.
+        if JC.Any(NewCard):
+            AllCards.append(NewCard)
+            
+            # Reset variables for new question...
+            NewCard = []
+            theCard += 1
+            answerStart = ''
         
-    # DEBULLETING + REORGANISING 'ALLCARDS':
-    for item in AllCards[0]:
-        if ItsA("Question", item):
-            # If a previous question just was now
-            # finished, add that previous one first.
-            if JC.Any(NewCard):
-                AllCards.append(NewCard)
-                
-                # Reset variables for new question...
-                NewCard = []
-                theCard += 1
-                answerStart = ''
-            
-            # 'NewCard' is an array/dimension
-            # representing a cleaned question and its
-            # answers, soon to be added to the 'AllCards'.
-            
-            # Slice off bullets before adding...
-            NewCard.append(item[len(questionBullet):])
-        else:
-            if JC.Any(NewCard):
-                if ItsA("New Answer", item):
-                    NewCard.append(item[len(answerBullet):])
-                    answerStart = JC.MaxIndex(NewCard)
-                else:
-                    # Then it must be a continued part of a previous answer, so
-                    # add the continuation as part of the original answer part.
-                    NewCard[answerStart] += item
+        # 'NewCard' is an array/dimension
+        # representing a cleaned question and its
+        # answers, soon to be added to the 'AllCards'.
+        
+        # Slice off bullets before adding...
+        NewCard.append(item[len(questionBullet):])
+    else:
+        if JC.Any(NewCard):
+            if ItsA("New Answer", item):
+                NewCard.append(item[len(answerBullet):])
+                answerStart = JC.MaxIndex(NewCard)
             else:
-                JC.FoundError("Expected question before answer, got the opposite.")
+                # Then it must be a continued part of a previous answer, so
+                # add the continuation as part of the original answer part.
+                NewCard[answerStart] += item
+        else:
+            JC.FoundError("Expected question before answer, got the opposite.")
     
-    # Add the last left over 'NewCard'.
-    AllCards.append(NewCard)
-    del NewCard
-    
-    # Reduce the first giant array item to
-    # include just the first question and its answers.
-    del AllCards[0]
+# Add the last left over 'NewCard'.
+AllCards.append(NewCard)
 
-    # End of algorithm:
+# Reduce the first giant array item to
+# include just the first question and its answers.
+del AllCards[0]
+
+del NewCard
+# End of algorithm:
 
 # Lowercase the answers so marking is slightly more lenient.
 for question in range(len(AllCards)):
@@ -184,18 +168,13 @@ JC.Title(JC.Quote(cardFile[cardFile.index('\ '[0]) + 1:]) + " Flash-Carder:")
 JC.AssertDominance()
 JC.Pace("(There are " + str(totalCards) + " questions)")
 theCard = -1
-print()
-
 
 if Intro:
-    JC.Pace("Firstly...")
     JC.TitledList("Commands List", Commands, False)
     JC.CatchUp()
-    print()
     JC.FreshPage()
 
-JC.IsBusy("Starting", False)
-print()
+JC.IsBusy("Starting", True)
 
 # CARD FLASHING LOOP:
 while 1:

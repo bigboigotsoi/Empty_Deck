@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84ac51f1-9111-47e1-9ca9-2219e41d7488" name="Default Changelist" comment="Flash-Carder:&#10;- Switched the finish command from 'Done' to 'Enter'&#10;- Now mentions if 2 or more answers/parts to a question.&#10;- Removed super inaccurate marking opinions.&#10;&#10;New 'Card Data File Explorer':&#10;- Option to either...&#10;Load the 'default' (hard-coded in) card data file, or...&#10;Pick another from the 'Your Cards' folder. All within running the Carder program.&#10; &#10;- Pick your file using the appropriate file number from the file 'tree' display.&#10;- No need to hard-code every time now. Have one default, and pick others when necessary.&#10;&#10;JC:&#10;- Increased 'dramatypeSpeed' and general pacing speed.&#10;&#10;- Added 'Digits' lambda expression:&#10;Returns amount of digits of a number.&#10;&#10;- Added 'Gapped' arguement to 'IsBusy' function: &#10;Toggles newlines on/off.&#10;&#10;- Added 'RangeCheck' function:&#10;Verifies if a value is in range, and raises a 'FoundError' if not.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Flash-Carder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flash-Carder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JC.py" beforeDir="false" afterPath="$PROJECT_DIR$/JC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,13 +18,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1480">
+            <state relative-caret-position="255">
               <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               <folding>
-                <marker date="1595015822065" expanded="true" signature="52:309" ph="..." />
-                <marker date="1595015822065" expanded="true" signature="52:310" ph="..." />
-                <marker date="1595015822065" expanded="true" signature="341:831" ph="..." />
-                <marker date="1595015822065" expanded="false" signature="870:1126" ph="..." />
+                <element signature="e#8273#8368#0" expanded="true" />
+                <marker date="1595016739458" expanded="true" signature="52:309" ph="..." />
+                <marker date="1595016739458" expanded="true" signature="52:310" ph="..." />
+                <marker date="1595016739458" expanded="true" signature="341:831" ph="..." />
+                <marker date="1595016739458" expanded="false" signature="870:1126" ph="..." />
               </folding>
             </state>
           </provider>
@@ -35,12 +34,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Flash-Carder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+            <state relative-caret-position="-863">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#42#57#0" expanded="true" />
-                <element signature="e#2708#4968#0" />
+                <element signature="e#1008#2096#0" />
+                <element signature="e#1080#1978#0" />
+                <element signature="e#1288#1543#0" />
+                <element signature="e#1997#2096#0" />
+                <element signature="e#4440#4499#0" expanded="true" />
+                <element signature="e#4830#4868#0" expanded="true" />
+                <element signature="e#4545#4564#0" expanded="true" />
+                <element signature="e#5073#5193#0" />
+                <element signature="e#5700#8881#0" />
+                <element signature="e#6146#6251#0" />
+                <element signature="e#6472#7183#0" />
+                <element signature="e#6656#6733#0" />
+                <element signature="e#6791#6862#0" />
+                <element signature="e#6912#7075#0" />
+                <element signature="e#7008#7075#0" />
+                <element signature="e#7325#7444#0" />
+                <element signature="e#7698#7933#0" />
+                <element signature="e#8113#8260#0" />
+                <element signature="e#8379#8595#0" />
+                <element signature="e#8673#8749#0" />
+                <element signature="e#8768#8881#0" />
               </folding>
             </state>
           </provider>
@@ -66,7 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>itsName</find>
       <find>whichOne</find>
       <find>st</find>
       <find>itsNam</find>
@@ -96,6 +112,7 @@
       <find>IsB</find>
       <find>Done</find>
       <find>dramatypeSp</find>
+      <find>FetchCardFile</find>
     </findStrings>
     <replaceStrings>
       <replace>print</replace>
@@ -147,8 +164,8 @@
         <option value="$PROJECT_DIR$/j" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/JC.py" />
-        <option value="$PROJECT_DIR$/Flash-Carder.py" />
         <option value="$PROJECT_DIR$/Your Cards/Another Card Data File.txt" />
+        <option value="$PROJECT_DIR$/Flash-Carder.py" />
       </list>
     </option>
   </component>
@@ -317,7 +334,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49679488" visible="true" weight="0.08459215" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49679488" visible="true" weight="0.08459215" />
       <window_info id="Structure" order="1" sideWeight="0.5032051" side_tool="true" weight="0.16087614" />
       <window_info id="Favorites" order="2" show_stripe_button="false" side_tool="true" weight="0.32936803" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -332,7 +349,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="0" y="23" width="1350" height="676" id="Debug" order="3" visible="true" weight="0.44637462" />
+      <window_info anchor="right" x="0" y="23" width="1350" height="676" id="Debug" order="3" weight="0.44637462" />
       <window_info anchor="right" x="1" y="31" width="681" height="706" id="Run" maximized="true" order="4" type="WINDOWED" weight="0.32852563" />
     </layout>
     <layout-to-restore>
@@ -369,6 +386,7 @@
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="AllCards" language="Python" />
+        <watch expression="NewCard" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -448,6 +466,11 @@
       </expression>
     </expressions>
     <expressions id="watch">
+      <expression>
+        <expression-string>NewCard</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>AllCards</expression-string>
         <language-id>Python</language-id>
@@ -538,19 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1480">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <marker date="1595015822065" expanded="true" signature="52:309" ph="..." />
-            <marker date="1595015822065" expanded="true" signature="52:310" ph="..." />
-            <marker date="1595015822065" expanded="true" signature="341:831" ph="..." />
-            <marker date="1595015822065" expanded="false" signature="870:1126" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Your Cards/Another Card Data File.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -558,14 +568,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding>
+            <element signature="e#8273#8368#0" expanded="true" />
+            <marker date="1595016739458" expanded="true" signature="52:309" ph="..." />
+            <marker date="1595016739458" expanded="true" signature="52:310" ph="..." />
+            <marker date="1595016739458" expanded="true" signature="341:831" ph="..." />
+            <marker date="1595016739458" expanded="false" signature="870:1126" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Flash-Carder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        <state relative-caret-position="-863">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#42#57#0" expanded="true" />
-            <element signature="e#2708#4968#0" />
+            <element signature="e#1008#2096#0" />
+            <element signature="e#1080#1978#0" />
+            <element signature="e#1288#1543#0" />
+            <element signature="e#1997#2096#0" />
+            <element signature="e#4440#4499#0" expanded="true" />
+            <element signature="e#4830#4868#0" expanded="true" />
+            <element signature="e#4545#4564#0" expanded="true" />
+            <element signature="e#5073#5193#0" />
+            <element signature="e#5700#8881#0" />
+            <element signature="e#6146#6251#0" />
+            <element signature="e#6472#7183#0" />
+            <element signature="e#6656#6733#0" />
+            <element signature="e#6791#6862#0" />
+            <element signature="e#6912#7075#0" />
+            <element signature="e#7008#7075#0" />
+            <element signature="e#7325#7444#0" />
+            <element signature="e#7698#7933#0" />
+            <element signature="e#8113#8260#0" />
+            <element signature="e#8379#8595#0" />
+            <element signature="e#8673#8749#0" />
+            <element signature="e#8768#8881#0" />
           </folding>
         </state>
       </provider>
