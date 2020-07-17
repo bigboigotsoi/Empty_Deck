@@ -6,24 +6,28 @@ held in the 'Your Cards' Folder. You can do this in two ways.
     Easy Way:  Replace the questions and answers in the 
                example 'Card Data.txt' file with your own. 
     
-Or...
+Or:
 
     Personalized Way:  Customize it/create your own one.
     
-For the more personalized way...
+For the more personalized way, you...
 
     1:  Modify/create your 'Card Data' text file.
 
-        Note...
+Note:
+
         - You can rename the card data file and/or modify 'questionBullet'  
           and 'answerBullet' in the Flash-Carder to your liking.
 
         - Use those bullets appropiately as demonstrated with the
           example data in the Card Data file, in order for loading to work. 
+          
+Then...
 
     2:  Help the Flash-Carder locate the file.
       
-        Do this by either...
+Do this by either...
+
         - Modifying the default directory/name stored in the 'cardFile' variable.
         
         - Selecting the file using the File Explorer. 
