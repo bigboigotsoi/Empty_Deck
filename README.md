@@ -1,10 +1,11 @@
 # Flash-Carder: Flash Cards on Python!
-  
-First, you should provide Card Data from a 'Card Data' file, 
-held in the 'Your Cards' Folder. You can do this in two ways.
+
+
+First, you should provide Deck Data from a 'Deck Data' file, 
+held in the 'Your Decks' Folder. You can do this in two ways.
 
     Easy Way:  Replace the questions and answers in the 
-               example 'Card Data.txt' file with your own. 
+               example 'Deck Data.txt' file with your own. 
     
 Or:
 
@@ -12,15 +13,15 @@ Or:
     
 For the more personalized way, you...
 
-    1:  Modify/create your 'Card Data' text file.
+    1:  Modify/create your 'Deck Data' text file.
 
 Note:
 
-        - You can rename the card data file and/or modify 'questionBullet'  
-          and 'answerBullet' in the Flash-Carder to your liking.
+        - You can rename the Deck data file and/or modify 'questionBullet'  
+          and 'answerBullet' in the Flash-Decker to your liking.
 
-        - Use those bullets appropiately as demonstrated with the
-          example data in the Card Data file, in order for loading to work. 
+        - Use those bullets appropriately as demonstrated with the
+          example data in the Deck Data file, in order for loading to work. 
           
 Then...
 
@@ -28,11 +29,11 @@ Then...
       
 Do this by either...
 
-        - Modifying the default directory/name stored in the 'cardFile' variable.
+        - Modifying the default directory/name stored in the 'DeckFile' variable.
         
         - Selecting the file using the File Explorer. 
-          (ONLY available if 2 or more card files are stored in the 'Your Cards' folder.)
+          (ONLY available if 2 or more Deck files are stored in the 'Your Decks' folder.)
           
 Then the Flash-Carder reads it, and tests you!
  
-(JC.py is just a module of handy functions I like to use, named after me.)
+(JC.py is a module of helpful functions I like to use, named after me)
