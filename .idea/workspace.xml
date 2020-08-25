@@ -1,78 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84ac51f1-9111-47e1-9ca9-2219e41d7488" name="Default Changelist" comment="Flash-Carder:&#10;- Switched the finish command from 'Done' to 'Enter'&#10;- Now mentions if 2 or more answers/parts to a question.&#10;- Removed super inaccurate marking opinions.&#10;&#10;New 'Card Data File Explorer':&#10;- Option to either...&#10;Load the 'default' (hard-coded in) card data file, or...&#10;Pick another from the 'Your Cards' folder. All within running the Carder program.&#10; &#10;- Pick your file using the appropriate file number from the file 'tree' display.&#10;- No need to hard-code every time now. Have one default, and pick others when necessary.&#10;&#10;JC:&#10;- Increased 'dramatypeSpeed' and general pacing speed.&#10;&#10;- Added 'Digits' lambda expression:&#10;Returns amount of digits of a number.&#10;&#10;- Added 'Gapped' arguement to 'IsBusy' function: &#10;Toggles newlines on/off.&#10;&#10;- Added 'RangeCheck' function:&#10;Verifies if a value is in range, and raises a 'FoundError' if not.">
+    <list default="true" id="84ac51f1-9111-47e1-9ca9-2219e41d7488" name="Default Changelist" comment="Flash-Carder:&#10;- Added Scorestreak system!:&#10;  Gain a crowd when you get large streaks. Keep them happy!&#10;&#10;&#10;&#10;- Added 'Can Explore' Bool Mod.&#10;- Converted 'Card' variables to 'Deck' variables&#10;- Other refactoring optimizations&#10;&#10;New 'Card Data File Explorer':&#10;- Option to either...&#10;Load the 'default' (hard-coded in) card data file, or...&#10;Pick another from the 'Your Cards' folder. All within running the Carder program.&#10; &#10;- Pick your file using the appropriate file number from the file 'tree' display.&#10;- No need to hard-code every time now. Have one default, and pick others when necessary.&#10;&#10;JC:&#10;- Increased 'dramatypeSpeed' and general pacing speed.&#10;&#10;- Added 'Digits' lambda expression:&#10;Returns amount of digits of a number.&#10;&#10;- Added 'Gapped' arguement to 'IsBusy' function: &#10;Toggles newlines on/off.&#10;&#10;- Added 'RangeCheck' function:&#10;Verifies if a value is in range, and raises a 'FoundError' if not.">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Flash-Carder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flash-Carder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JC.py" beforeDir="false" afterPath="$PROJECT_DIR$/JC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Your Cards/Another Card Data File.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Your Cards/Card Data.txt" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Empty_FlashCards" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JC.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-              <folding>
-                <element signature="e#8273#8368#0" expanded="true" />
-                <marker date="1595016739458" expanded="true" signature="52:309" ph="..." />
-                <marker date="1595016739458" expanded="true" signature="52:310" ph="..." />
-                <marker date="1595016739458" expanded="true" signature="341:831" ph="..." />
-                <marker date="1595016739458" expanded="false" signature="870:1126" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Flash-Carder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-863">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
-              <folding>
-                <element signature="e#1008#2096#0" />
-                <element signature="e#1080#1978#0" />
-                <element signature="e#1288#1543#0" />
-                <element signature="e#1997#2096#0" />
-                <element signature="e#4440#4499#0" expanded="true" />
-                <element signature="e#4830#4868#0" expanded="true" />
-                <element signature="e#4545#4564#0" expanded="true" />
-                <element signature="e#5073#5193#0" />
-                <element signature="e#5700#8881#0" />
-                <element signature="e#6146#6251#0" />
-                <element signature="e#6472#7183#0" />
-                <element signature="e#6656#6733#0" />
-                <element signature="e#6791#6862#0" />
-                <element signature="e#6912#7075#0" />
-                <element signature="e#7008#7075#0" />
-                <element signature="e#7325#7444#0" />
-                <element signature="e#7698#7933#0" />
-                <element signature="e#8113#8260#0" />
-                <element signature="e#8379#8595#0" />
-                <element signature="e#8673#8749#0" />
-                <element signature="e#8768#8881#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Your Cards/Another Card Data File.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,68 +22,6 @@
         <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>whichOne</find>
-      <find>st</find>
-      <find>itsNam</find>
-      <find>TheAnswers</find>
-      <find>ReallyDown</find>
-      <find>DramaicElipses</find>
-      <find>DramaticElipses()</find>
-      <find>Say</find>
-      <find>SayStuffUntil</find>
-      <find>time</find>
-      <find>)-1</find>
-      <find>question</find>
-      <find>itemIndex</find>
-      <find>NewQuestion</find>
-      <find>endOfQuestionOne</find>
-      <find>AllQuestions</find>
-      <find>amountAfterMarking</find>
-      <find>YourCorrectOnes</find>
-      <find>str</find>
-      <find>'</find>
-      <find>* A</find>
-      <find>sleep</find>
-      <find>DramaType</find>
-      <find>totalCards</find>
-      <find>randint</find>
-      <find>int</find>
-      <find>IsB</find>
-      <find>Done</find>
-      <find>dramatypeSp</find>
-      <find>FetchCardFile</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>print</replace>
-      <replace>OkayWith</replace>
-      <replace>BotTillLimit</replace>
-      <replace>BotTillMax</replace>
-      <replace>item</replace>
-      <replace>questionNumber</replace>
-      <replace>endOfQuestionOne</replace>
-      <replace>itsName</replace>
-      <replace>questionIndex</replace>
-      <replace>return</replace>
-      <replace>fie</replace>
-      <replace>file</replace>
-      <replace>longPause</replace>
-      <replace>theQuestion</replace>
-      <replace>VaryBotAnswers</replace>
-      <replace>Down</replace>
-      <replace>DramaticElipses</replace>
-      <replace>DramaicElipses(1)</replace>
-      <replace>question[itemIndex]</replace>
-      <replace>NewQuestion</replace>
-      <replace>question</replace>
-      <replace>qOneStart</replace>
-      <replace>questionTwoStart</replace>
-      <replace>totalCards</replace>
-      <replace>Yessify</replace>
-      <replace>CorrectAnswers</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -151,79 +31,50 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/QAC 2.0.py" />
-        <option value="$PROJECT_DIR$/Card Data" />
-        <option value="$PROJECT_DIR$/Question Array Creator.py" />
-        <option value="$PROJECT_DIR$/Card Data.txt" />
-        <option value="$PROJECT_DIR$/Colossians 3.txt" />
-        <option value="$PROJECT_DIR$/Empty FlashCards.py" />
-        <option value="$PROJECT_DIR$/h.py" />
-        <option value="$PROJECT_DIR$/j" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/JC.py" />
-        <option value="$PROJECT_DIR$/Your Cards/Another Card Data File.txt" />
-        <option value="$PROJECT_DIR$/Flash-Carder.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="697" />
-    <option name="height" value="745" />
-  </component>
+  <component name="ProjectId" id="1f39QzOJyECmye3FYqLssZvnBaW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="Flash-Carder" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="Flash-Carder" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Your Cards" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Your Cards" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Flash-Carder (Mobile).py" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder\Your Cards" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder\My Cards" />
+      <recent name="C:\Users\Joseph Campbell\PycharmProjects\Flash-Carder\Your Cards" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.Empty">
-    <configuration name="Empty" type="PythonConfigurationType" factoryName="Python">
+  <component name="RunManager" selected="Python.Carder Mobile">
+    <configuration name="Carder Mobile" type="PythonConfigurationType" factoryName="Python">
+      <module name="'Empty' FlashCards - BETA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Flash-Carder (Mobile).py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Carder PC" type="PythonConfigurationType" factoryName="Python">
       <module name="'Empty' FlashCards - BETA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -286,10 +137,50 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Tester" type="PythonConfigurationType" factoryName="Python">
+      <module name="'Empty' FlashCards - BETA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pure 2.0 test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in bin" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="'Empty' FlashCards - BETA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.Empty" />
+      <item itemvalue="Python.Tester" />
+      <item itemvalue="Python.Carder PC" />
+      <item itemvalue="Python.Carder Mobile" />
       <item itemvalue="Python.QAC 2.0" />
       <item itemvalue="Python.Question Array Creator" />
+      <item itemvalue="Python tests.pytest in bin" />
     </list>
     <recent_temporary>
       <list>
@@ -298,6 +189,7 @@
     </recent_temporary>
   </component>
   <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
     <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS" />
   </component>
   <component name="SvnConfiguration">
@@ -330,303 +222,175 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49679488" visible="true" weight="0.08459215" />
-      <window_info id="Structure" order="1" sideWeight="0.5032051" side_tool="true" weight="0.16087614" />
-      <window_info id="Favorites" order="2" show_stripe_button="false" side_tool="true" weight="0.32936803" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" show_stripe_button="false" weight="0.2900641" />
-      <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="6" show_stripe_button="false" weight="0.32852563" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32852563" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="0" y="23" width="1350" height="676" id="Debug" order="3" weight="0.44637462" />
-      <window_info anchor="right" x="1" y="31" width="681" height="706" id="Run" maximized="true" order="4" type="WINDOWED" weight="0.32852563" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49679488" weight="0.08459215" />
-      <window_info id="Structure" order="1" sideWeight="0.5032051" side_tool="true" weight="0.16087614" />
-      <window_info id="Favorites" order="2" show_stripe_button="false" side_tool="true" weight="0.32936803" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" show_stripe_button="false" weight="0.2900641" />
-      <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="6" show_stripe_button="false" weight="0.32852563" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32852563" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" x="0" y="23" width="1350" height="676" id="Debug" order="3" visible="true" weight="0.44637462" />
-      <window_info anchor="right" x="1" y="31" width="681" height="706" id="Run" maximized="true" order="4" type="WINDOWED" weight="0.32852563" />
-    </layout-to-restore>
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="QAC:&#10;- Added 'BotTillLimit' Function to limit Aim_Bot Iterations neatly.&#10;- Added 'Done' Checks.&#10;  - Now, input 'Done' to finish adding questions or answers, &#10;    instead of being pestered with &quot;Is this Okay&quot; messages.&#10;- Small UI/message Changes&#10;&#10;JC Module:&#10;- Removed 'StopPace' function.&#10;- Removed 'NewLineOverride' function.&#10;- Added end = '' overrides to 'Pace' and 'SmartPace' functions.&#10;  Now, just include end = '' in your given string arguement, and it'll work." />
     <MESSAGE value="QAC:&#10;- Converted 'Answer_Num' &#10;  from a lambda to def &#10;  function.&#10;- UI/Message tweaks.&#10;- Few more comments.&#10;&#10;JC Module:&#10;- Added 'Impatient' boolean mod:&#10;  Turns off all delays in the JC Module if set to True&#10;- Added 'EndCheck' internal function:&#10;  Now the can detect &quot;end = ''&quot;. Include it at the end, but inside the given   string, and it'll detect it." />
     <option name="LAST_COMMIT_MESSAGE" value="QAC:&#10;- Converted 'Answer_Num' &#10;  from a lambda to def &#10;  function.&#10;- UI/Message tweaks.&#10;- Few more comments.&#10;&#10;JC Module:&#10;- Added 'Impatient' boolean mod:&#10;  Turns off all delays in the JC Module if set to True&#10;- Added 'EndCheck' internal function:&#10;  Now the can detect &quot;end = ''&quot;. Include it at the end, but inside the given   string, and it'll detect it." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598362372952">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1598362372952" />
+    <state x="400" y="172" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598354599295">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="400" y="172" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1598354599295" />
+    <state x="275" y="14" key="#xdebugger.evaluate" timestamp="1598358426913">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="14" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1598358426913" />
+    <state x="137" y="0" key="CommitChangelistDialog2" timestamp="1598370506847">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1598370506847" />
+    <state width="1337" height="466" key="DebuggerActiveHint" timestamp="1598363177797">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1337" height="466" key="DebuggerActiveHint/0.0.1366.738@0.0.1366.738" timestamp="1598363177797" />
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1598369709172">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1598369709172" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1598362370533">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1598362370533" />
+    <state width="600" height="611" key="GridCell.Tab.-1.bottom" timestamp="1598355865977">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.-1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1598355865977" />
+    <state width="600" height="611" key="GridCell.Tab.-1.center" timestamp="1598355865977">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.-1.center/0.0.1366.738@0.0.1366.738" timestamp="1598355865977" />
+    <state width="600" height="611" key="GridCell.Tab.-1.left" timestamp="1598355865977">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.-1.left/0.0.1366.738@0.0.1366.738" timestamp="1598355865977" />
+    <state width="600" height="611" key="GridCell.Tab.-1.right" timestamp="1598355865977">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.-1.right/0.0.1366.738@0.0.1366.738" timestamp="1598355865977" />
+    <state width="600" height="611" key="GridCell.Tab.0.bottom" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state width="600" height="611" key="GridCell.Tab.0.center" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state width="600" height="611" key="GridCell.Tab.0.left" timestamp="1598369736317">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1598369736317" />
+    <state width="600" height="611" key="GridCell.Tab.0.right" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state width="600" height="611" key="GridCell.Tab.1.bottom" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state width="600" height="611" key="GridCell.Tab.1.center" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state width="600" height="611" key="GridCell.Tab.1.left" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state width="600" height="611" key="GridCell.Tab.1.right" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="600" height="611" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.bottom" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.center" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.left" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.right" timestamp="1598369736318">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="600" height="611" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1598369736318" />
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.bottom" timestamp="1598355868236">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.bottom/0.0.1366.738@0.0.1366.738" timestamp="1598355868236" />
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.center" timestamp="1598355868236">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.center/0.0.1366.738@0.0.1366.738" timestamp="1598355868236" />
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.left" timestamp="1598356153175">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.left/0.0.1366.738@0.0.1366.738" timestamp="1598356153175" />
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.right" timestamp="1598355868236">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="571" height="583" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1598355868236" />
+    <state x="174" y="0" key="SettingsEditor" timestamp="1596042651878">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="174" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1596042651878" />
+    <state x="540" y="0" key="VCS.ChangeListViewerDialog" timestamp="1596044736960">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="540" y="0" key="VCS.ChangeListViewerDialog/0.0.1366.738@0.0.1366.738" timestamp="1596044736960" />
+    <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1596748033585">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="691" height="377" key="XDebugger.FullValuePopup/0.0.1366.738@0.0.1366.738" timestamp="1596748033585" />
+    <state x="448" y="74" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1595524464882">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="448" y="74" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1366.738@0.0.1366.738" timestamp="1595524464882" />
+    <state x="488" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596747594402">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="488" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1596747594402" />
+    <state x="245" y="97" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1598217313093">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="245" y="97" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1598217313093" />
+    <state x="639" y="0" width="587" height="651" key="dock-window-1" timestamp="1598356226014">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="639" y="0" width="587" height="651" key="dock-window-1/0.0.1366.738@0.0.1366.738" timestamp="1598356226014" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1598365645731">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1598365645731" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-defaults>
         <breakpoint type="python-line" />
       </breakpoints-defaults>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="AllCards" language="Python" />
-        <watch expression="NewCard" language="Python" />
+        <watch expression="NewCard[0]" language="Python" />
+        <watch expression="Deck.index(NewCard)" language="Python" />
+        <watch expression="round(0.8 * len(AnswerWords))" language="Python" />
+        <watch expression="len(os.listdir(deckFolder))" />
+        <watch expression="deckAddress" />
+        <watch expression="len(os.listdir(deckFolder)) - deckAddress - 1" language="Python" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateCodeFragment">
-      <expression>
-        <expression-string>cardFile[cardFile.index('\ '[0])+1:]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>JC.MaxIndex(AllCards)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>JC.MaxIndex(AllCards))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>AllCards[int(theCard) - 1][JC.Digits(theCard) + 6:]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>AllCards[int(theCard) - 1][len(treePart):]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>AllCards[int(theCard) - 1][len('(' + str(theCard) + ')--&gt; '):]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>AllCards[theCard - 1][len('(' + str(theCard) + ')--&gt; '):]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Path(cardFolder)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>list(Path(cardFolder))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>list(Path(cardFolder).rglob())</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-    </expressions>
-    <expressions id="breakpointCondition">
-      <expression>
-        <expression-string>theQuestion == 7</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>theQuestion</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>UserInputs == TheAnswers</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>questionNumber == 8</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-    <expressions id="watch">
-      <expression>
-        <expression-string>NewCard</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>AllCards</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>totalCards</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>TheAnswers</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>NextItem(AllQuestions[0], item)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>item</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>AllQuestions</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>question[itemIndex]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>questionIndex</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>questionNumber</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/QAC 2.0.py" />
-    <entry file="file://$PROJECT_DIR$/../Timings/JC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-155" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Question Array Creator.py" />
-    <entry file="file://$PROJECT_DIR$/ay" />
-    <entry file="file://$PROJECT_DIR$/Obsolete/Question Array Creator.py" />
-    <entry file="file://$PROJECT_DIR$/Colossians 3.txt" />
-    <entry file="file://$PROJECT_DIR$/Empty FlashCards.py" />
-    <entry file="file://$PROJECT_DIR$/Card Data" />
-    <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/Lib/tokenize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="446" selection-start-line="446" selection-end-line="446" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/h.py" />
-    <entry file="file://$PROJECT_DIR$/j" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="311" selection-start-line="311" selection-end-line="311" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Your Cards/Another Card Data File.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <element signature="e#8273#8368#0" expanded="true" />
-            <marker date="1595016739458" expanded="true" signature="52:309" ph="..." />
-            <marker date="1595016739458" expanded="true" signature="52:310" ph="..." />
-            <marker date="1595016739458" expanded="true" signature="341:831" ph="..." />
-            <marker date="1595016739458" expanded="false" signature="870:1126" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flash-Carder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-863">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-          <folding>
-            <element signature="e#1008#2096#0" />
-            <element signature="e#1080#1978#0" />
-            <element signature="e#1288#1543#0" />
-            <element signature="e#1997#2096#0" />
-            <element signature="e#4440#4499#0" expanded="true" />
-            <element signature="e#4830#4868#0" expanded="true" />
-            <element signature="e#4545#4564#0" expanded="true" />
-            <element signature="e#5073#5193#0" />
-            <element signature="e#5700#8881#0" />
-            <element signature="e#6146#6251#0" />
-            <element signature="e#6472#7183#0" />
-            <element signature="e#6656#6733#0" />
-            <element signature="e#6791#6862#0" />
-            <element signature="e#6912#7075#0" />
-            <element signature="e#7008#7075#0" />
-            <element signature="e#7325#7444#0" />
-            <element signature="e#7698#7933#0" />
-            <element signature="e#8113#8260#0" />
-            <element signature="e#8379#8595#0" />
-            <element signature="e#8673#8749#0" />
-            <element signature="e#8768#8881#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <last-edited>Unnamed</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.28787878" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
