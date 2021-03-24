@@ -1,0 +1,28 @@
+
+
+START
+
+
+Welcome Title
+Choose deck
+Configure Deck Settings
+Intro or not
+Show a card
+# Get answers 
+
+ # /   'DECK LIBRARY' Folder:  / 
+ #
+ # 1   Colossians 3  (19 Qs)
+ # | 
+ # 2   Fula  [5 Files]
+ # / 
+ 
+ # 42 spaces wide mobile
+ 
+ 
+ # /  'DECK LIBRARY' Folder:  / 
+ #
+ # 1   Colossians 3jfghfdkjghfghffgf            19 Qs   DONE!
+ # | 
+ # 2   [ Fula ]         5 Files
+ # / 
