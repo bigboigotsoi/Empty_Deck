@@ -1,0 +1,96 @@
+
+# Thermodynamics: 
+
+
+# 1-7 processes
+
+> Process
+- Changes in a system from one equilibrium state to another
+
+> Processes pass a series of states as they run. This series is called a  ...
+- Path
+
+> How to describe a Process?
+- Specify the initial and final states, and the path  between them.
+
+> Quasistatic Process?
+- An idealized process which stays infinitesimally close to equilibrium at all times.
+
+> Processes that keep specific volume constant are ...
+- Isochoric
+- Isometric
+
+> The properties of a steady flow system remain ...
+- constant as time passes
+
+> Which properties of a steady flow systems control volume can stay constant
+- Mass
+- Total Energy
+- Specific Volume
+
+> The properties of a steady flow systems can vary with ...
+- position within the system.
+
+
+
+# Chapter 2. Energy #
+
+> What things are ignored when analysing total energy of a system?
+- Electrical energy
+- Magnetic Energy
+- Surface Tension Energy
+
+> Total energy is mainly the sum of ...
+- Internal Energy of all molecules
+- Kinetic Energy of the system
+- Gravitational Potential of the system
+
+> Total energy per unit mass, 'e' equation?
+- e = u + v^2/2 + gz
+
+> In Stationary systems, which energies remain constant? (+ then total energy =)
+- Kinetic energy
+- Potential Energy
+-  Internal Energy
+
+> the total energy of a stationary system is found from the m... (+ symbol)
+- Mass flow rate
+
+> Mass flow rate is proportional to ? (+ both equations)
+- Volume flow rate
+- m^. = pV^.
+- m^. = pA_cV_avg
+
+> what does V_avg represent in m^. = pA_cV_avg ?
+- Average fluid flow velocity 
+
+> Energy flow rate from a stationary system, E^. = m^. * ? (symbol + worded)
+- Specific energy
+- e
+
+> How can energy cross a boundary?
+- by heat 
+- by work
+
+> Heat definition?
+- Energy transfered between systems by virtue of temperature difference
+
+> adiabatic means ...
+- No heat transfer to surroundings
+
+> Difference betweeen adiabatic and isothermal processes?
+- Adiabatic systems can still have their temperature changed by non heat ways like work.
+
+> How can Power be represented as rate of work? (symbol)
+- W^.
+
+> System properties such as total energy only chanage if ...
+- The systems state changes
+
+> Change in system energy = ?
+- m(u_2 - u_2) + m/2(V_2^2 - V_1^2) + mg(z_2 - z_1)
+
+> Energy can be transferred to/from a system via...
+- Work
+- Heat
+- Mass

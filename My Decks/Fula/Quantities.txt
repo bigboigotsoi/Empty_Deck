@@ -1,0 +1,92 @@
+	
+# AMOUNTS: #
+
+# Numbers:
+
+> 1
+- Go
+
+> 2
+- Didi
+
+> 3
+- Tati
+
+> 4
+- Naiyi
+
+> 5
+- Jowi
+
+> What number does the 'Jeh' prefix represent?
+- 5
+
+> 6
+- Jeh-go
+
+> 7
+- Jeh-didi
+
+> 8
+- Jeh-tati
+
+> 9
+- Jeh-naiyi
+
+> 10
+- sahpoh
+
+> 12
+- sahpoh heh didi
+
+> 20
+- Norgas
+
+> 27
+- Norgas heh jeh-didi
+
+> 30
+- Chapandeh-tati
+
+> 33
+- Chapandeh-tati heh tati
+
+> 40
+- Chapandeh-naiyi
+
+> 50
+- Chapandeh-jowi
+
+> 59
+- Chapandeh-jowi heh jeh-naiyi
+
+> 60
+- Chapandeh-jeh-go
+
+> 70
+- Chapandeh-jeh-didi
+
+> 80
+- Chapandeh-jeh-tati
+
+> 90
+- Chapandeh-jeh-naiyi
+
+> 100
+- Tairmederreh
+
+> 1000
+- Wullerreh
+
+> 1010
+- Wullerreh heh sahpoh
+
+> Plenty.
+- Heahwee
+- Noh-beteh
+
+> Nothing.
+- Hihoonday.
+
+> That's enough.
+- Nyunee

@@ -1,0 +1,32 @@
+
+# Thermodynamics: 
+
+# Chapter 3
+
+> Compressed/sub-cooled liquid?
+- A liquid which is not about to vaporize
+
+> Saturated Liquid?
+- A liquid which is about to vaporize
+
+> Saturated Vapor?
+- Vapor that is about to condense.
+
+> Superheated vapor?
+- Vapor which is not about to condense
+
+
+
+
+# Chapter 4. Moving Boundary Work  #
+
+> Kelvin = Celcius + 273.15
+
+> Change in Kelvin = ...
+- Change in Celcius
+
+> P_gage = ...
+- P_abs - P_atm
+
+> P_vacuum = ...
+- P_atm - P_abs
