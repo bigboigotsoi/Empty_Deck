@@ -15,7 +15,7 @@ import os
 
 # VARIABLES/DATA:
 Intro = True
-Harsh = False
+Harsh = True
 Can_Explore = True
 ShuffleDecks = True
 
@@ -28,7 +28,7 @@ questionBullet = '> '
 answerBullet = '- '
 commentBullet = '# '
 
-checkpoint = 3
+checkpoint = 1
 
 
 remarks = [
@@ -51,7 +51,11 @@ remarks = [
         ["Great", "Keep it up", "Nice one", "Nicely Done", "Get in there mate",
          "Keep it up", "Hey... that's pretty good", '', "Lets gooo",
          "You're getting good at this", "EZ", "ez", "gg ez", "2 ez",
-         "Easy", "That's half-decent", "You're on it today", "Looking good"]]
+         "Easy", "That's half-decent", "You're on it today", "Looking good"],
+
+        # Nothing
+        [""]
+]
 
 commands = ["'Enter'     :>  Finish answering.",
             "'commands'  :>  See commands List"]
@@ -60,9 +64,10 @@ done_decks = []
 
 
 
+
 # Functions...
 
-quote = lambda message: '"' + message + '"'
+quote = lambda message: "'" + message + "'"
 
 def Fix_Spaces(phrase):
     while '  ' in phrase:
@@ -90,57 +95,62 @@ def Its_A(what, phrase):
 def Crowd(Banner, size):
     Limbs = [['  ', "##", "@@", "££", "$$", "__"], ["'", "^", "!"],
              ['0', 'o', '_', '-', '=', '~'], ['/', '\l'[0], '|']]
-    
-    pomPom = ChooseFrom(Limbs[0])
-    eye = ChooseFrom(Limbs[1])
-    mouth = ChooseFrom(Limbs[2])
-    leftLeg = ChooseFrom(Limbs[3])
-    rightLeg = ChooseFrom(Limbs[3])
-    
-    # Create new Cheerers every time.
-    # Or based on occasion.
-    if "!RUN!" in Banner[1]:
-        pomPom = Limbs[0][4]
-        eye = Limbs[1][1]
-        mouth = Limbs[2][0]
-        leftLeg = Limbs[3][2]
-        rightLeg = Limbs[3][1]
-    elif "[x]" in Banner[0]:
-        pomPom = Limbs[0][0]
-        eye = '*'
-        mouth = 'x'
-        leftLeg = Limbs[3][0]
-        rightLeg = Limbs[3][1]
-    
-    if not pomPom == "__" and not pomPom == "  ":
+
+
+    if size >= 1:
+
+        pomPom = ChooseFrom(Limbs[0])
+        eye = ChooseFrom(Limbs[1])
+        mouth = ChooseFrom(Limbs[2])
+        leftLeg = ChooseFrom(Limbs[3])
+        rightLeg = ChooseFrom(Limbs[3])
+
+        # Create new Cheerers every time.
+        # Or based on occasion.
+        if "!RUN!" in Banner[1]:
+            pomPom = Limbs[0][4]
+            eye = Limbs[1][1]
+            mouth = Limbs[2][0]
+            leftLeg = Limbs[3][2]
+            rightLeg = Limbs[3][1]
+        elif "[x]" in Banner[0]:
+            pomPom = Limbs[0][0]
+            eye = '*'
+            mouth = 'x'
+            leftLeg = Limbs[3][0]
+            rightLeg = Limbs[3][1]
+
         print()
-    
-    lineAmount = -1
-    # This is ugly and unavoidable pretty sure.
-    while size and not size == lineAmount:
-        if size >= 4:
-            lineAmount = 4
-            size -= 4
-        else:
-            lineAmount = size
-        
-        if lineAmount:
-            JCLib.DramaType((pomPom + "     " + pomPom + ' ') * lineAmount
-                    + ' __' + '_' * (len(Banner[0])) + '__ \n', 1,
-                    round(JCLib.Delays[0] / 4), False)
+        if not pomPom == "__" and not pomPom == "  ":
+            print()
             
-            JCLib.DramaType((" \(" + eye + mouth + eye + ")/  ") * lineAmount
-                    + '|  ' + Banner[0] + '  | \n', 1, round(JCLib.Delays[0] / 4),
-                    False)
-            
-            JCLib.DramaType(("   ||     ") * lineAmount
-                    + '|  ' + Banner[1] + '  | \n', 1, round(JCLib.Delays[0] / 4),
-                    False)
-            
-            JCLib.DramaType(("   " + leftLeg + rightLeg + "     ") * lineAmount + '|--'
-                    + '-' * len(Banner[0]) + '--| \n', 1, round(JCLib.Delays[0] / 4),
-                    False)
-    print()
+        lineAmount = -1
+        # This is ugly and unavoidable pretty sure.
+        while size and not size == lineAmount:
+            if size >= 4:
+                lineAmount = 4
+                size -= 4
+            else: 
+                lineAmount = size
+
+            if lineAmount:
+                JCLib.DramaType((pomPom + "     " + pomPom + ' ') * lineAmount
+                        + ' __' + '_' * (len(Banner[0])) + '__ ',
+                        duration=JCLib.Delays[0] / 15, pace=-1)
+
+                JCLib.DramaType((" \(" + eye + mouth + eye + ")/  ") * lineAmount
+                        + '|  ' + Banner[0] + '  | ', duration=JCLib.Delays[0] / 15, pace=-1)
+
+                JCLib.DramaType(("   ||     ") * lineAmount
+                        + '|  ' + Banner[1] + '  | ', duration=JCLib.Delays[0] / 15, pace=-1)
+
+                JCLib.DramaType(("   " + leftLeg + rightLeg + "     ") * lineAmount + '|--'
+                        + '-' * len(Banner[0]) + '--| ', duration=JCLib.Delays[0] / 15, pace=-1)
+
+                # if size and not pomPom == "__" and not pomPom == "  ":
+                #     print()
+
+        print("\n"*2)
     JCLib.Pause(3)
 
 def Strip_Answer(phrase):
@@ -150,7 +160,8 @@ def Strip_Answer(phrase):
 
 def Search_Folder(current_folder):
     deck_address = 0
-    JCLib.Pace("\n'" + current_folder + "' DECK FOLDER:\n")
+    JCLib.Wipe_CLI()
+    JCLib.Pace("\n\n'" + current_folder + "' DECK FOLDER:\n", pace=2)
 
     # Build a kind of file tree...
     for element in os.listdir(current_folder):
@@ -176,7 +187,7 @@ def Search_Folder(current_folder):
         JCLib.Pause(0)
     print('/ ')
 
-    JCLib.Pause(1)
+    JCLib.Pause(2)
     print()
     deck_address = int(JCLib.Get_Input("Which item number would you like to load?"))
     choice_directory = current_folder + '\\' + os.listdir(current_folder)[deck_address - 1]
@@ -185,40 +196,46 @@ def Search_Folder(current_folder):
         return choice_directory
     else:
         # Recursive Call
-        JCLib.Doing("Searching '" + os.path.basename(choice_directory), newlines=1)
+        JCLib.Doing("searching '" + os.path.basename(choice_directory) + "'", prelines=0)
         return Search_Folder(choice_directory)
 
-JCLib.Release_Ready(["Intro On: " + JCLib.Yessify(Intro),
-                  "Harsh Off: " + JCLib.Yessify(not Harsh),
-                  "Checkpoint is 3 : " + JCLib.Yessify(checkpoint == 3),
-                  "Shuffle Decks On: " + JCLib.Yessify(ShuffleDecks),
-                  "File Explorer On: " + JCLib.Yessify(Can_Explore),
+JCLib.Release_Ready(["Intro On: " + JCLib.Yessify(Intro).lower(),
+                  "Harsh Off: " + JCLib.Yessify(not Harsh).lower(),
+                  "Checkpoint is 3 : " + JCLib.Yessify(checkpoint == 3).lower(),
+                  "Shuffle Decks On: " + JCLib.Yessify(ShuffleDecks).lower(),
+                  "File Explorer On: " + JCLib.Yessify(Can_Explore).lower(),
                   "deck File is 'deck Data': " +
                    JCLib.Yessify(deck_folder + deck_file ==
-                              "Your Decks\\deck Data - 1.txt")])
+                              "Your Decks\\deck Data - 1.txt").lower()])
+
 
 
 
 # 'DEFAULT DECK FILE' CARDER START:
-JCLib.Title(" Flash-Carder (Standard Edition): ")
+JCLib.Title("Flash-Carder (Standard Edition)")
 
-JCLib.Doing("Loading default deck file: " + quote(deck_file), newlines=1)
+JCLib.Doing("Loading default deck file: " + quote(deck_file), pace=2, prelines=0, newlines=1)
 JCLib.Error_When(not any(deck_file), "No default deck file was specified/coded in.")
 Revising = True
+
+
 
 
 while Revising:
     # 'deck' takes the form 'deck[which question][which answer to the question]'
     deck = [None]
     current_card = []
-    
+    global already_encouraged
+
+
     # 'YOUR DECKS' FILE EXPLORER:
-    if Can_Explore and len(os.listdir(deck_folder)) > 1:
-        if JCLib.Okay_With("\nChoose a different file?"):
+    if Can_Explore and len(os.listdir(deck_folder + '\\')) > 1:
+        if JCLib.Okay_With("Choose a different file?"):
             deck_file = Search_Folder(deck_folder)
-            JCLib.Doing("Loading new deck file: " + quote(deck_file))
+            JCLib.Doing("Loading new deck file: " + quote(deck_file), prelines=0, newlines=2)
         else:
             deck_file = deck_folder + '\\' + deck_file
+
 
 
     # 'DECK DATA' FILE READER:
@@ -276,19 +293,25 @@ while Revising:
     bestStreak = streak = 0
     initialDeckSize = len(deck)
     cardsLeft = initialDeckSize
-    
+    already_encouraged = False
+
+
+
     # 'CUSTOM DECK' CARDER START:
-    JCLib.Title(quote(deck_file[deck_file.index('\ '[0]) + 1:]) + " Flash-Carder  ")
-    JCLib.Pace("\t(There are " + str(initialDeckSize) + " questions)")
-    print()
+    JCLib.Title(quote(deck_file[deck_file.index('\ '[0]) + 1:]) + " Flash-Carder  ", pace=-1, prelines=1, newlines=0)
+    JCLib.Pace("\t(There are " + str(initialDeckSize) + " questions) \n", pace=2)
     
     if Intro:
-        JCLib.Titled_List("Commands List", commands, numbered=False, newlines=1)
+        JCLib.Pause(2)
+        JCLib.Titled_List("Commands List", commands, pace=2, numbered=False, prelines=0)
         JCLib.Prompt()
         
-    JCLib.Doing("Starting", newlines=1)
+    JCLib.Notify("starting...", newlines=2)
     JCLib.Wipe_CLI()
-    
+
+
+
+
     # CARD-FLASH LOOP:
     while any(deck):
         # (RE)SETTING:
@@ -302,62 +325,73 @@ while Revising:
         # Pick Question.
         if ShuffleDecks:
             current_card = ChooseFrom(deck)
-            
+
         # Everything apart from the question title (current_card[1] up inclusive) is answers.
         TheAnswers = current_card[1:]
             
-        if streak and streak // checkpoint == 0:
+        if streak and streak >= checkpoint:
+
             if streak == checkpoint:
-                JCLib.Pace("{ Erm, a Crowd has appeared. }")
-            else:
-                JCLib.Pace("{ The Crowd is growing!? }")
+                JCLib.Separate_CLI(newlines=1)
+                JCLib.Pace("< Errm, a crowd is forming? >")
+            elif streak % checkpoint == 0:
+                JCLib.Separate_CLI(newlines=1)
+                JCLib.Pace("< Look, the crowd is growing! >")
                 
             Crowd(["  Get A  ",
-                          "!PERFECT!"], int(streak/checkpoint))
+                   "!PERFECT!"], int(streak/checkpoint))
             
-            JCLib.Pace("I guess we should keep them happy. Anyways.")
+            JCLib.Doing("(We should try and keep them happy", prelines=0, newlines=0)
+            print(")\n")
             JCLib.Pause(1)
 
 
+
+
         # ASK QUESTION:
-        JCLib.DramaType(">>", Paced=True)
+        JCLib.Separate_CLI(newlines=2)
+        JCLib.DramaType(">>", duration=JCLib.Delays[2], pace=1, newlines=0)
         JCLib.Pace(' ' + current_card[0])
     
         if len(TheAnswers) > 1:
-            JCLib.Pace(" * There are " + str(len(TheAnswers[0])) + " answers/parts to this question. *")
+            JCLib.Pace(" * There are " + str(len(TheAnswers)) + " answers/parts to this question. *")
         print()
         
         Answering = True
 
 
+
         # GET ANSWERS:
         while Answering:
-            response = JCLib.Get_Input("Your answer")
+            response = JCLib.Get_Input("Your answer", pace=-1)
             
             # Detect commands.
             if JCLib.Commanded('commands', response):
-                JCLib.Titled_List("commands List", commands, False)
-                JCLib.Pause(0)
+                JCLib.Titled_List("commands List", commands, pace=2, numbered=False)
             elif not any(response):
                 if any(MyInputs):
                     Answering = False
                 elif JCLib.Okay_With("Skip Question?"):
                     Answering = False
+                    print("\n"*2)
             # Or accept and save answer.
             else:
                 MyInputs.append(response)
         JCLib.Wipe_CLI()
-        JCLib.Pause(0)
+        JCLib.Pause(1)
+
 
 
         # MARKING:
         if any(MyInputs):
-            JCLib.Doing("Marking Answers", True)
-            
+            JCLib.Doing("Marking Answers", pace=1, newlines=3)
+
+
         # For every input...
         TheAnswers = [TheAnswers, list(map(JCLib.Stripped, current_card[1:]))]
         for myAnswer in MyInputs:
             CountedCorrect = False
+
             # Check it against every true pure answer.
             for thisAnswer in TheAnswers[1]:
                 if TheAnswers[1].index(thisAnswer) not in CorrectAnswers[1]:
@@ -402,25 +436,27 @@ while Revising:
         CountedCorrect = len(CorrectAnswers) == len(TheAnswers)
 
 
+
         # FEEDBACK:
         if CountedCorrect:
-            JCLib.Pace('[ ' + ChooseFrom(remarks[ChooseFrom([0, 2])]) + '! ]')
-            print()
+            JCLib.Pace('[ ' + ChooseFrom(remarks[ChooseFrom([0, 2])]) + '! ]', pace=2)
+            print("\n")
         else:
             # If not skipped...
             if any(MyInputs):
-                print()
-                JCLib.Pace("[ err... ]")
+                JCLib.Pause(1)
+                JCLib.Pace("[ err... ]", pace=2)
+                print("\n")
                 
-            JCLib.Titled_List("The answers were:", TheAnswers, numbered=False, tabs=1)
+            JCLib.Titled_List("The answers were: ", TheAnswers, numbered=False, prelines=0, newlines=2, tabs=1)
         
         if any(MyInputs):
-            print('\t' + JCLib.listStart + "Your entries were:" + JCLib.listEnd)
+            print('\t' + JCLib.listStart + "Your entries were: " + JCLib.listEnd)
             JCLib.Pause(1)
             Shown = []
         
             for myAnswer in MyInputs:
-                JCLib.DramaType("\t- " + myAnswer + "    ")
+                JCLib.DramaType("\t- " + myAnswer + "    ", newlines=0)
                 if myAnswer in Shown:
                     JCLib.DramaType("* found already *")
                 if Strip_Answer(myAnswer) in list(
@@ -428,9 +464,13 @@ while Revising:
                     JCLib.DramaType("\t<- Perfecto!")
                 elif myAnswer in CorrectAnswers and myAnswer not in Shown:
                     JCLib.DramaType("\t<- I'll allow that...")
-                print()
-                JCLib.Pause(0)
-        JCLib.Pause(1)
+                elif myAnswer not in Shown:
+                    print()
+                if not JCLib.The_Item("Is the Last", myAnswer, MyInputs):
+                    JCLib.Pause(0)
+            print()
+        print()
+        JCLib.Pause(2)
         
         #  ____
         # | Q2 \
@@ -452,49 +492,56 @@ while Revising:
             
             # Streak mods...
             if streak >= checkpoint:
-                print("< On a " + str(streak) + " answer streak, ", end = '')
+                print("< On a " + str(streak) + " answer streak", end='')
+
                 if streak > checkpoint:
-                    print(ChooseFrom(remarks[ChooseFrom([1, 2])]), end ='')
-                print("! > end = ''")
-                    
-                if streak >= round(0.60 * initialDeckSize):
-                    JCLib.Pace("\nYou've nearly got a PERFECT RUN, Keep going!")
+                    if streak >= round(0.60 * initialDeckSize) and not already_encouraged:
+                        JCLib.Pace("\nYou've nearly got a PERFECT RUN, Keep going!")
+                        already_encouraged = True
+                    elif already_encouraged and ChooseFrom([True, False]) == True:
+                        print(", " + ChooseFrom(remarks[ChooseFrom([1, 2])]), end='')
+                print("! > ")
                     
                 # Don't allow user correction.
                 if Harsh:
-                    print()
+                    print("  ", end='')
                     JCLib.Prompt()
+                    print()
                     
             JCLib.Notify("Completed " + str(initialDeckSize - cardsLeft) + '/' +
                       str(initialDeckSize) + " questions. (~" +
-                      str(round(100 - (100 * cardsLeft / initialDeckSize))) + '%)')
+                      str(round(100 - (100 * cardsLeft / initialDeckSize))) + '%)', prelines=0, newlines=2)
                     
         # Or if incorrect, lose Crowd...
         else:
             if streak >= checkpoint:
                 # Upset Crowd...
-                JCLib.Pace("\nWait, you lost the " + str(streak) + " streak!?")
+                JCLib.Pace("\n'Did you lose your streak !??'")
         
                 Crowd(["|[x]\ /[x]|",
                               " \ (===) / "], int(streak / checkpoint))
         
-                JCLib.Pace("(Looks like the Crowd's leaving now...)")
+                JCLib.Pace("(your crowd has left...)")
                 JCLib.Pause(1)
+                print()
             streak = 0
         
         # NEXT QUESTION:
         if any(deck):
             if ShuffleDecks or any(MyInputs):
-                JCLib.Doing("Next Question", True)
+                if CountedCorrect:
+                    JCLib.Doing("  Next Question", prelines=0, newlines=2) # line up with previous completed * notif
+                else:
+                    JCLib.Doing("Next Question", prelines=0, newlines=2)
             else:
-                JCLib.Doing("Retrying Question", True)
+                JCLib.Doing("Retrying Question", prelines=0, newlines=2)
                 
             JCLib.Wipe_CLI()
       
     # FINISH OFF:
     JCLib.Wipe_CLI()
     JCLib.Pause(2)
-    JCLib.Pace("\nAll Cards Learnt:  end = ''")
+    JCLib.Pace("\nAll Cards Learnt:  ", newlines=0)
     
     # If Perfect, Crowd goes Wild!!
     if streak == initialDeckSize:
@@ -504,7 +551,7 @@ while Revising:
         Crowd(["!PERFECT!",
                       "  !RUN!  "], int(streak/checkpoint) + 3)
     else:
-        JCLib.Pace("\n\n< This time, your largest streak was " + str(bestStreak) + " strong! > ")
+        JCLib.Pace("\n\n< This time, your best streak was " + str(bestStreak) + " > ")
         Crowd([ "get a perfect",
                       "next time... "], 1)
         

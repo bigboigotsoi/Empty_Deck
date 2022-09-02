@@ -1,6 +1,7 @@
 import time
 
 # Customize these variables
+import JCLib as JCLib
 
 bullet = '- '
 cursor = ':' + bullet
@@ -14,7 +15,7 @@ DramaTyping = True
 
 # Define the largest pause, and
 # Smaller ones will be auto-generated.
-longPause = 0
+longPause = 0.5
 
 
 
@@ -22,53 +23,49 @@ longPause = 0
 
 # 1 - PRESENTATION:
 
-def Wipe_CLI():
-    if FreshPages:
+def Wipe_CLI(always = False):
+    if FreshPages or always:
         print('\n' * 38)
-    else:
-        print()
+
+def Separate_CLI(prelines=0, newlines=1):
+    print("\n"*prelines + "_  "*15 + "\n"*newlines)
         
-def Notify(message, prelines=0, newlines=0, tabs=0):
-    print('\n'*prelines + '\t'*tabs + '*', message, '*')
+def Notify(message, prelines=1, newlines=1, tabs=0):
+    print('\n'*prelines + '\t'*tabs + '*', message, '* ', end='')
     Pause(2)
-    print('\n' * newlines)
+    print('\n' * newlines, end='')
 
-def Doing(something, prelines=0, newlines=0, tabs=0):
+def Doing(something, pace=1, prelines=1, newlines=1, tabs=0):
     if prelines:
-        print('\n'*prelines)
+        print('\n' * prelines)
 
-    print('\t'*tabs, end = '')
+    print('\t'*tabs, end='')
     # DramaType("...")
-    print(str(something), end = '')
-    DramaType('\t'*tabs + "...")
-    Pause(1)
-
-    if newlines:
-        print('\n' * newlines)
+    print(str(something), end='')
+    DramaType("...", newlines=newlines)
+    Pause(pace)
 
 def An(control_number):
     if control_number == 1:
         return "An "
     return "A "
 
-def DramaType_How(message, duration, Paced=False, prelines=0, newlines=0):
+def DramaType_How(message, duration, pace=1, prelines=0, newlines=1):  # By default, make next text start on next line, end = '' is newlines = 0.
     if prelines:
-        print('\n'*prelines)
+        print('\n' * prelines)
 
     if DramaTyping:
         for character in message:
             print(character, end = '')
             time.sleep(duration / len(message))
+        if newlines:
+            print('\n'*newlines, end='')
     else:
-        print(message)
+        print(message, end='')
 
-    if Paced:
-        Pause(1)
-
-    if newlines:
-        print('\n' * newlines)
-
-DramaType = lambda message, Paced=False, prelines=0, newlines=0: DramaType_How(message, dramaDuration, Paced,  prelines, newlines)
+    Pause(pace)
+    if newlines and not DramaTyping:
+        print('\n'*newlines, end='')
 
 def Sure_Response(message):
     _input = Get_Input(message)
@@ -84,54 +81,63 @@ Delays = [0, 0, 0, 0]
 if longPause:
     for count in range(4):
         # Decrease in size exponentially
-        Delays.insert(0, round(longPause / 2 ** count, 2))
+        Delays[len(Delays)-(count+1)] = longPause / 2.5 ** count
+        # Or linearly
+        # Delays[len(Delays)-(count+1)] = longPause / (count+1)
     del Delays[4:]
 dramaDuration = Delays[1]
+
+DramaType = lambda message, pace=1, duration=dramaDuration, prelines=0, newlines=1: DramaType_How(message, duration=dramaDuration,
+                                                                                                   pace=pace, prelines=prelines,
+                                                                                                   newlines=newlines)
 
 Prompt = lambda: input("Type to Continue" + cursor)
         
 def Pause(factor):
-    try:
-        # So Pause(0) is the quickest pause, Pause(3) longest
-        time.sleep(Delays[factor])
-    except IndexError:
-        Error("Invalid pause factor")
+    if factor >= 0:
+        try:
+            # So Pause(0) is the quickest pause, Pause(3) longest
+            time.sleep(Delays[factor])
+        except IndexError:
+            Error("Invalid pause factor")
         
-def Pace(message):
-    print(message)
-    Pause(1)
+def Pace(message, pace=1, prelines=0, newlines=1):
+    print("\n"*prelines + message + "\n"*newlines)
+    Pause(pace)
 
 
     
 # 3 - LISTING:
 
-def Title(title, prelines=0, newlines=0, tabs=0):
+def Title(title, pace=3, prelines=1, newlines=1, tabs=0):
     print('\n'*prelines + '\t'*tabs, titleStart + str(title) + ':', titleEnd + '\n'*newlines)
-    Pause(3)
+    Pause(pace)
 
-def List(optionsList, numbered, prelines=0, newlines=0, tabs=0):
+def List(options_list, pace=0, numbered=False, prelines=1, newlines=2, tabs=0):
     number = 0
     Pause(1)
 
     if prelines:
         print('\n' * prelines)
 
-    for option in optionsList:
+    for option in options_list:
         if numbered:
             number += 1
-            DramaType('\t'*tabs + str(number) + '  ' + option + '\n')
+            DramaType('\t'*tabs + str(number) + '  ' + option, newlines=0)
         else:
-            DramaType('\t'*tabs + bullet + ' ' + option, newlines=1)
+            DramaType('\t'*tabs + bullet + ' ' + option, newlines=0)
         time.sleep(Delays[0]/2)
-    Pause(0)
 
-    if newlines:
-        print('\n' * newlines)
+        if not JCLib.The_Item("Is The Last", option, options_list):
+            print()
+        elif newlines:
+            print('\n' * newlines)
+    Pause(pace)
 
-def Titled_List(title, optionsList, numbered, prelines=0, newlines=0, tabs=0):
+def Titled_List(title, options_list, numbered=True, pace=0, prelines=1, newlines=1, tabs=0):
     Pause(1)
     print('\n'*prelines + '\t'*tabs + listStart + title + ':', listEnd)
-    List(optionsList, numbered=numbered, newlines=newlines, tabs=tabs)
+    List(options_list, numbered=numbered, pace=pace, prelines=0, newlines=1, tabs=tabs)
 
 def Valid_Index(index, array):
     if index > -1 and index < len(array) - 1:
@@ -162,7 +168,7 @@ def One_Listed(PossibleThings, InHere):
             return True
     return False
 
-def Menu_Response(title, Options, CarefulOptions = [], prelines=0, newlines=0, tabs=0):
+def Menu_Response(title, Options, CarefulOptions = [], prelines=1, newlines=0, tabs=0):
     if any(title):
         Titled_List(title, Options + CarefulOptions, numbered=True, prelines=prelines, newlines=1, tabs=tabs)
     else:
@@ -253,12 +259,12 @@ def Switch_Up(boolean):
     return "Off"
 
 def Release_Ready(MoreMods):
-    Title("GitHub Release Check")
+    Title("GitHub Release Check", pace=-1)
     # [["It's off", True]]
 
-    JCmods = ["DramaTyping On    : " + Yessify(DramaTyping),
-              "Fresh Pages Off   : " + Yessify(not FreshPages),
-              "Long Pause = 1.25 : " + Yessify(longPause == 1.25)]
+    JCmods = ["DramaTyping On    : " + Yessify(DramaTyping).lower(),
+              "Fresh Pages Off   : " + Yessify(not FreshPages).lower(),
+              "Long Pause = 1.25 : " + Yessify(longPause == 1.25).lower()]
 
     # Remove mods already reset...
     for ModList in [JCmods, MoreMods]:
@@ -271,30 +277,32 @@ def Release_Ready(MoreMods):
     JCReady = not any(JCmods)
     MoreModsReady = not any(MoreMods)
 
-    Pace("\n\t ...RELEASE READY: " + Yessify(JCReady and MoreModsReady).upper() +
+    Pace("\t ...RELEASE READY: " + Yessify(JCReady and MoreModsReady).upper() +
          '!...\n')
+    Pause(2)
 
     if not JCReady:
-        print("\tJC.py Module Ready: " + Yessify(JCReady).upper() + "...")
-        List(JCmods, True)
-        print()
+        print("   JC.py Module Ready: " + Yessify(JCReady).upper() + "...")
+        List(JCmods, prelines=0)
+
 
     if not MoreModsReady:
-        print("\tBool Mods Reset: " + Yessify(MoreModsReady).upper() + "...")
-        List(MoreMods, True)
-        print()
+        Pause(2)
+        print("   Bool Mods Reset: " + Yessify(MoreModsReady).upper() + "...")
+        List(MoreMods, prelines=0)
 
+    Pause(2)
     Prompt()
-    Wipe_CLI()
+    Wipe_CLI(always=True)
 
-def Get_Input(fromMessage=''):
+def Get_Input(fromMessage='', pace=1):
     _input = input(fromMessage + cursor)
-    Pause(1)
+    Pause(pace)
     return _input
 
 def Error_When(condition, message):
     if condition:
-        Notify("Error: " + message + " end = ''")
+        Notify("Error: " + message, newlines=0)
         input(cursor)
         Pause(2)
         print()
