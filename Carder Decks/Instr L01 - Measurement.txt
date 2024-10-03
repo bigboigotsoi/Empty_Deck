@@ -1,0 +1,26 @@
+
+# 
+
+> What is Instrumentation?
+- The tools used to measure, monitor and control mechanical processes or parameters.
+
+> Main purposes of measurement?
+- Regulation/Inspection 
+- Condition Monitoring
+- Feedback Control
+
+> Why is Regulation/Inspection measurement important?
+- To stay within trade/industry quality or health and safety specs.
+
+> Why is Condition Monitoring measurement important?
+- To allow users to apply necessary actions before, during, or after the natural phenomena occurs.
+
+> Why is Feedback Control measurement important?
+- To maintain accuracy and and performance of computer controlled operations.
+
+> 
+
+> Transducer?
+- Converts energy from one form to another.
+- usually into electrical energy for digital computer useage
+
