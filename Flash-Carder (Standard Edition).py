@@ -22,7 +22,7 @@ ShuffleDecks = True
 
 # Directory + name of the DEFAULT data file.
 deck_folder = "My Decks"
-deck_file = "Colossians 3"
+deck_file = "Mgmnt L01 Buisness Plan & Start"
 
 questionBullet = '> '
 answerBullet = '- '
@@ -236,7 +236,8 @@ while Revising:
         else:
             deck_file = deck_folder + '\\' + deck_file
 
-
+    if len(os.listdir(deck_folder + '\\')) == 1:
+        deck_file = deck_folder + '\\' + deck_file
 
     # 'DECK DATA' FILE READER:
     JCLib.Wipe_CLI()
